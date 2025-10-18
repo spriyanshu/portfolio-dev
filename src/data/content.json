@@ -1,0 +1,199 @@
+{
+  "personal": {
+    "name": "Priyanshu Singh",
+    "title": "Backend Software Engineer",
+    "tagline": "I'm a Software Engineer and Backend Developer, passionate about building scalable systems and crafting innovative solutions that make a difference in people's lives.",
+    "email": "spriyanshu751@gmail.com",
+    "phone": "+91 6392724010",
+    "location": "Bangalore, India",
+    "avatar": "",
+    "favicon": "/favicon.ico",
+    "social": {
+      "github": "https://github.com/spriyanshu",
+      "linkedin": "https://linkedin.com/in/priyanshusingh07",
+      "twitter": "https://x.com/07spriyanshu",
+      "email": "mailto:spriyanshu751@gmail.com"
+    },
+    "resumeUrl": "/resume.pdf"
+  },
+  "sections": {
+    "hero": {
+      "enabled": true
+    },
+    "about": {
+      "enabled": true
+    },
+    "experience": {
+      "enabled": true
+    },
+    "projects": {
+      "enabled": true
+    },
+    "skills": {
+      "enabled": true
+    },
+    "blog": {
+      "enabled": true
+    },
+    "featured": {
+      "enabled": true
+    },
+    "contact": {
+      "enabled": true
+    }
+  },
+  "about": {
+    "title": "About me",
+    "description": "Backend Software Engineer with 3+ years of experience building scalable microservices, integrating payment systems, and optimizing cloud-native solutions. Strong expertise in Node.js, NestJS, PostgreSQL, Redis, Kafka, and AWS. Proven ability to deliver secure, high-performance applications in Agile/Scrum environments.",
+    "paragraphs": [
+      "I'm a backend engineer with a passion for crafting scalable and innovative digital solutions. Over the years, I've embarked on an exciting journey through the ever-evolving landscape of technology, mastering the art of microservices architecture, cloud-native development, and becoming a full-stack problem solver.",
+      "Throughout my career, I've had the privilege of working with diverse clients and companies, including a leading product development studio and various fintech startups. My work has allowed me to embrace different challenges and deliver tailored software solutions that meet unique business needs.",
+      "Currently, my main focus is on building and managing backend services and products for clients at GeekyAnts, where I'm committed to providing top-notch solutions and exceptional system performance. I've architected systems handling millions of dollars in transactions and built real-time applications serving thousands of concurrent users.",
+      "But life isn't all about code and servers; I'm equally passionate about staying at the forefront of emerging technologies and diving deep into system designs. When I'm not behind the screen, you can often find me exploring new technologies or contributing to open-source projects."
+    ]
+  },
+  "experience": [
+    {
+      "id": "1",
+      "company": "GeekyAnts",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQGDboRtzGkMrQ/company-logo_200_200/company-logo_200_200/0/1736245737287/geekyants_india_pvt_ltd_logo?e=1762387200&v=beta&t=4vpQRA0ubcOHkYt7CDFcPG7ww1CcRGkvl-7xypKTFkE",
+      "position": "Software Engineer",
+      "location": "Bangalore, KA",
+      "startDate": "Aug 2022",
+      "endDate": "Present",
+      "description": "Building scalable backend systems and microservices for enterprise clients",
+      "achievements": [
+        "Architected backend services for customer onboarding, integrating third-party KYC services for identity verification and credit checks, deployed by 3 leading US banks.",
+        "Engineered multi-tenant payment processing system handling 2M+ USD monthly transactions across 4 providers (Authorize.Net, Stripe, BlueSnap, PayPal), achieving 99.99% uptime while ensuring full PCI DSS compliance with zero security incidents.",
+        "Configured a monitoring system using Prometheus, Grafana, and AWS CloudWatch, reducing incident response time by 40%.",
+        "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners."
+      ]
+    },
+    {
+      "id": "2",
+      "company": "Infinisea Software Private Limited",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1762387200&v=beta&t=SEYi4PnxiG999Ew9XM1egPmbqKxL3K8kQ2HA1TVGsK8",
+      "position": "Software Engineer Intern",
+      "location": "Lucknow, UP",
+      "startDate": "Feb 2022",
+      "endDate": "Jul 2022",
+      "description": "Developed ERP modules for government authorities",
+      "achievements": [
+        "Engineered ERP modules for 13+ government authorities, enabling seamless system integration and enhanced customization.",
+        "Optimized SQL queries, reducing report generation time from 15 minutes to 45 seconds (96% faster).",
+        "Applied role-based access control for 10+ government institutions using OAuth2 and JWT authentication."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "2",
+      "name": "AI-Powered HR Assistant",
+      "shortDescription": "Intelligent AI chatbot handling 1,000+ daily HR queries using LangChain and OpenAI GPT-4, achieving 92% query resolution accuracy.",
+      "longDescription": "Built intelligent AI chatbot handling 1,000+ daily HR queries (policies, leaves, notices) using LangChain and OpenAI GPT-4, achieving 92% query resolution accuracy and reducing HR workload by 45%. Integrated PostgreSQL with SQL Agents for DML operations, processing 500+ database transactions daily with 99.9% data integrity and <50ms query response time. Implemented FAISS vector embeddings for semantic search across 10,000+ documents, improving search accuracy by 25% and reducing search latency from 2 seconds to 300ms.",
+      "tags": ["AI", "LangChain", "OpenAI", "PostgreSQL", "FAISS"],
+      "image": "https://prajjwalarora.com/img/projects/hr-bot.png",
+      "links": {
+        "demo": "",
+        "github": "",
+        "viewAll": ""
+      }
+    },
+    {
+      "id": "1",
+      "name": "Payment Service",
+      "shortDescription": "Modular microservices-based payment service processing 5,000+ daily transactions across 4 payment providers using unified API.",
+      "longDescription": "Developed modular microservices-based payment service processing 5,000+ daily transactions across 4 payment providers using unified API, reducing integration time for new providers from 2 weeks to 3 days. Applied Strategy and Factory design patterns for provider selection and instantiation, improving code maintainability by 40% and reducing duplicate code by 65%.",
+      "tags": ["NestJS", "Payments", "RabbitMQ", "Redis", "Docker"],
+      "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+      "links": {
+        "demo": "",
+        "github": "",
+        "viewAll": ""
+      }
+    },
+
+    {
+      "id": "3",
+      "name": "Real-time Podcast Platform",
+      "shortDescription": "High-scale podcast application using WebRTC, Icecast, Socket.io, and RabbitMQ, handling 10,000+ concurrent listeners.",
+      "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
+      "tags": ["WebRTC", "Socket.io", "RabbitMQ", "Icecast", "Real-time"],
+      "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=600&fit=crop",
+      "links": {
+        "demo": "",
+        "github": "",
+        "viewAll": ""
+      }
+    }
+  ],
+  "skills": {
+    "categories": [
+      {
+        "name": "Languages",
+        "items": ["TypeScript", "JavaScript (ES6+)", "Java", "Python", "SQL"]
+      },
+      {
+        "name": "Frameworks",
+        "items": ["NestJS", "Express", "Spring Boot", "GraphQL"]
+      },
+      {
+        "name": "Databases",
+        "items": ["PostgreSQL", "MongoDB", "MySQL", "Redis"]
+      },
+      {
+        "name": "Cloud/DevOps",
+        "items": ["AWS (EC2, S3, Lambda, RDS)", "Docker", "Kubernetes", "Terraform", "CI/CD"]
+      },
+      {
+        "name": "Architecture",
+        "items": ["Microservices", "Event-Driven", "API Gateway", "Serverless"]
+      },
+      {
+        "name": "Tools",
+        "items": ["Git", "Kafka", "RabbitMQ", "Prometheus", "Grafana"]
+      },
+      {
+        "name": "Security",
+        "items": ["OAuth2", "JWT", "PCI DSS Compliance", "API Security"]
+      }
+    ]
+  },
+  "education": [
+    {
+      "id": "1",
+      "institution": "University of Lucknow",
+      "degree": "Master of Computer Applications",
+      "location": "Lucknow, UP",
+      "startDate": "Aug 2020",
+      "endDate": "May 2022"
+    }
+  ],
+  "featured": [
+    {
+      "id": "1",
+      "title": "Building Scalable Payment Systems",
+      "platform": "Tech Blog",
+      "url": "https://blog.spriyanshu.in/",
+      "description": "Featured article on architecting multi-tenant payment processing systems",
+      "date": "2024"
+    },
+    {
+      "id": "2",
+      "title": "ChatGPT Powered HR-Bot | ChatGPT Challenge | GeekSpeak | GeekyAnts",
+      "platform": "Tech Video",
+      "url": "https://youtu.be/itDCzbvJH3s?si=uBu7snT4Z7jkI8eV",
+      "description": "Featured video on building a ChatGPT powered HR-Bot for GeekyAnts",
+      "date": "2023"
+    }
+  ],
+  "blog": {
+    "externalBlogUrl": "https://blog.spriyanshu.in/",
+    "rssUrl": "https://blog.spriyanshu.in/rss.xml"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or potential collaborations. Feel free to reach out!",
+    "email": "spriyanshu751@gmail.com"
+  }
+}
