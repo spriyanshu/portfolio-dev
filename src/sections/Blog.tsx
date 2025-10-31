@@ -12,7 +12,10 @@ export const Blog = ({ blogConfig }: BlogProps) => {
   if (loading || error || posts.length === 0) return null;
 
   return (
-    <section id="blog" className="section-spacing">
+    <section
+      id="blog"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
+    >
       <div className="container-custom">
         <div className="flex items-end justify-between mb-12 md:mb-16">
           <motion.h2

@@ -7,7 +7,10 @@ interface SkillsProps {
 
 export const Skills = ({ skills }: SkillsProps) => {
   return (
-    <section id="skills" className="section-spacing">
+    <section
+      id="skills"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden"
+    >
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

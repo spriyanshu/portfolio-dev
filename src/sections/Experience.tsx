@@ -7,7 +7,10 @@ interface ExperienceProps {
 
 export const Experience = ({ experiences }: ExperienceProps) => {
   return (
-    <section id="experience" className="section-spacing">
+    <section
+      id="experience"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
+    >
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

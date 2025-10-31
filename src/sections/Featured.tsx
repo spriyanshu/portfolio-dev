@@ -9,7 +9,10 @@ export const Featured = ({ featured }: FeaturedProps) => {
   if (featured.length === 0) return null;
 
   return (
-    <section id="featured" className="section-spacing">
+    <section
+      id="featured"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden"
+    >
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

@@ -7,7 +7,10 @@ interface AboutProps {
 
 export const About = ({ about }: AboutProps) => {
   return (
-    <section id="about" className="section-spacing ">
+    <section
+      id="about"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

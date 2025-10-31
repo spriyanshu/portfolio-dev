@@ -8,7 +8,10 @@ interface ContactProps {
 
 export const Contact = ({ contact, personalInfo }: ContactProps) => {
   return (
-    <section id="contact" className="section-spacing">
+    <section
+      id="contact"
+      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -37,7 +40,7 @@ export const Contact = ({ contact, personalInfo }: ContactProps) => {
           <motion.a
             href={`mailto:${contact.email}`}
             whileHover={{ scale: 1.02 }}
-            className="inline-block text-2xl md:text-3xl lg:text-4xl font-semibold mb-10 md:mb-12 transition-all duration-300 group relative"
+            className="inline-block text-xl md:text-3xl lg:text-4xl font-semibold mb-10 md:mb-12 transition-all duration-300 group relative"
             style={{ color: 'var(--accent)' }}
           >
             {contact.email}
