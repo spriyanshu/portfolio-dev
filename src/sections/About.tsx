@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { SectionTitle } from '@/components/SectionTitle';
 import { About as AboutType } from '@/types';
-import { fadeInUp, staggerContainer } from '@/utils/animations';
 
 interface AboutProps {
   about: AboutType;
@@ -9,43 +7,83 @@ interface AboutProps {
 
 export const About = ({ about }: AboutProps) => {
   return (
-    <section id="about" className="section-spacing relative">
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto relative z-10">
-        <SectionTitle title={about.title} subtitle="Getting to know me" />
-
+    <section id="about" className="section-spacing ">
+      <div className="container-custom">
         <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="card card-glow"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="grid lg:grid-cols-[60%_40%] gap-12 lg:gap-16 items-start"
         >
-          {/* Decorative quote mark */}
-          <div className="absolute top-6 left-6 text-blue-500/20">
-            <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
+          {/* Left: Content with accent line */}
+          <div className="relative">
+            <div className="absolute -left-4 md:-left-6 top-0 accent-line"></div>
+
+            <h2
+              className="text-3xl md:text-4xl font-semibold mb-8 md:mb-12"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              {about.title}
+            </h2>
+
+            <div className="space-y-4 md:space-y-6">
+              {about.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-base md:text-lg leading-relaxed"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
-          <div className="space-y-6 pt-8">
-            {about.paragraphs.map((paragraph, index) => (
-              <motion.p
-                key={index}
-                variants={fadeInUp}
-                className="text-lg text-gray-300 leading-relaxed first-letter:text-2xl first-letter:font-bold first-letter:text-blue-400"
+          {/* Right: Quick Facts - Stack on mobile */}
+          <div className="grid grid-cols-3 lg:grid-cols-1 gap-6 md:gap-8">
+            <div className="text-center lg:text-left">
+              <p
+                className="text-xs md:text-sm uppercase tracking-wider mb-1 md:mb-2"
+                style={{ color: 'var(--text-tertiary)' }}
               >
-                {paragraph}
-              </motion.p>
-            ))}
-          </div>
-
-          {/* Decorative element */}
-          <div className="mt-8 pt-6 border-t border-dark-border/30 flex items-center gap-4">
-            <div className="h-1 w-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full" />
-            <p className="text-gray-400 italic">Always learning, always building</p>
+                Years
+              </p>
+              <p
+                className="text-3xl md:text-4xl font-bold"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                3+
+              </p>
+            </div>
+            <div className="text-center lg:text-left">
+              <p
+                className="text-xs md:text-sm uppercase tracking-wider mb-1 md:mb-2"
+                style={{ color: 'var(--text-tertiary)' }}
+              >
+                Projects
+              </p>
+              <p
+                className="text-3xl md:text-4xl font-bold"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                15+
+              </p>
+            </div>
+            <div className="text-center lg:text-left">
+              <p
+                className="text-xs md:text-sm uppercase tracking-wider mb-1 md:mb-2"
+                style={{ color: 'var(--text-tertiary)' }}
+              >
+                Tech
+              </p>
+              <p
+                className="text-3xl md:text-4xl font-bold"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                20+
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

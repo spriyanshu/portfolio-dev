@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button } from '@/components/Button';
 import { PersonalInfo } from '@/types';
-import { fadeInUp, fadeInDown, scaleIn, staggerContainer } from '@/utils/animations';
 
 interface HeroProps {
   personalInfo: PersonalInfo;
@@ -9,159 +7,167 @@ interface HeroProps {
 
 export const Hero = ({ personalInfo }: HeroProps) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center section-spacing pt-16 overflow-hidden">
-      {/* Animated background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-pink-500/10 dark:from-blue-500/5 dark:via-purple-500/3 dark:to-pink-500/5" />
-      <div className="absolute inset-0 grid-background opacity-20" />
-
-      {/* Animated orbs */}
-      <motion.div
-        className="absolute top-1/4 -left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 -right-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 1,
-        }}
-      />
-
-      <motion.div
-        className="max-w-4xl mx-auto text-center relative z-10"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.div variants={fadeInDown} className="mb-6">
-          <p className="text-lg md:text-xl text-gray-400 mb-2 flex items-center justify-center gap-2">
-            Hi <span className="inline-block animate-wave origin-[70%_70%]">👋</span>, I'm
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
-            {personalInfo.name}
-          </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold gradient-text mb-6">
-            {personalInfo.title}
-          </h2>
-        </motion.div>
-
-        <motion.p
-          variants={fadeInUp}
-          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-3xl leading-relaxed text-left"
-        >
-          {personalInfo.tagline}
-        </motion.p>
-
-        <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4 mb-12">
-          <Button href={personalInfo.resumeUrl} download className="btn-primary">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            Download Resume
-          </Button>
-          <Button href="#contact" variant="outline" className="btn-outline">
-            Get In Touch
-          </Button>
-        </motion.div>
-
-        <motion.div variants={scaleIn} className="flex items-center gap-4">
-          {[
-            { icon: 'github', url: personalInfo.social.github, label: 'GitHub' },
-            { icon: 'linkedin', url: personalInfo.social.linkedin, label: 'LinkedIn' },
-            { icon: 'twitter', url: personalInfo.social.twitter, label: 'Twitter' },
-            { icon: 'email', url: personalInfo.social.email, label: 'Email' },
-          ].map((social, index) => (
-            <motion.a
-              key={social.icon}
-              href={social.url}
-              target={social.icon !== 'email' ? '_blank' : undefined}
-              rel={social.icon !== 'email' ? 'noopener noreferrer' : undefined}
-              className="social-icon"
-              whileHover={{ scale: 1.1, y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + index * 0.1 }}
-              aria-label={social.label}
-            >
-              {social.icon === 'github' && (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              )}
-              {social.icon === 'linkedin' && (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              )}
-              {social.icon === 'twitter' && (
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              )}
-              {social.icon === 'email' && (
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              )}
-            </motion.a>
-          ))}
-        </motion.div>
-
-        {/* Scroll indicator */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <div className="container-custom relative z-10">
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="max-w-4xl relative"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <svg
-              className="w-6 h-6 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Left Accent Line - Same as About section */}
+          <div className="absolute -left-4 md:-left-6 top-0 accent-line"></div>
+
+          {/* Name & Title - Left-aligned */}
+          <div className="mb-6 md:mb-8">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tight"
+              style={{ color: 'var(--text-primary)' }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </motion.div>
+              {personalInfo.name}
+            </h1>
+            <p
+              className="text-xl sm:text-2xl md:text-3xl font-medium"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              {personalInfo.title}
+            </p>
+          </div>
+
+          {/* Concise Tagline - Max 600px width, left-aligned */}
+          <p
+            className="text-base sm:text-lg md:text-xl leading-relaxed max-w-[600px] mb-8 md:mb-12"
+            style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}
+          >
+            {personalInfo.tagline}
+          </p>
+
+          {/* CTAs - Left-aligned, Stack on mobile with 10px gap */}
+          <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4 mb-10 md:mb-12">
+            <a href="#contact" className="btn-primary">
+              Get in touch
+            </a>
+            <a href={personalInfo.resumeUrl} download className="btn-outline">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 1 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+                />
+              </svg>
+              Download CV
+            </a>
+          </div>
+
+          {/* Social Icons - Left-aligned, 28px on mobile, 24px gaps */}
+          <div className="flex items-center gap-6 md:gap-6 mt-6">
+            <a
+              href={personalInfo.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="GitHub"
+            >
+              <svg
+                className="w-6 md:w-6 h-6 md:h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
+                />
+              </svg>
+            </a>
+            <a
+              href={personalInfo.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="LinkedIn"
+            >
+              <svg
+                className="w-6 md:w-6 h-6 md:h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                />
+                <circle cx="4" cy="4" r="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <a
+              href={personalInfo.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+              aria-label="Twitter"
+            >
+              <svg
+                className="w-6 md:w-6 h-6 md:h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                />
+              </svg>
+            </a>
+            <a href={personalInfo.social.email} className="social-icon" aria-label="Email">
+              <svg
+                className="w-6 md:w-6 h-6 md:h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
         </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.6 }}
+        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span
+          className="text-xs uppercase tracking-wider"
+          style={{ color: 'var(--text-tertiary)' }}
+        >
+          Scroll
+        </span>
+        <div className="scroll-indicator">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
       </motion.div>
     </section>
   );
