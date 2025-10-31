@@ -9,7 +9,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
   return (
     <section
       id="experience"
-      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
+      className="section-spacing relative min-h-screen flex items-center overflow-hidden "
     >
       <div className="container-custom">
         <motion.h2
@@ -100,7 +100,7 @@ export const Experience = ({ experiences }: ExperienceProps) => {
                             <span
                               className="text-sm md:text-base"
                               style={{
-                                color: 'rgba(255, 255, 255, 0.85)',
+                                color: 'var(--text-secondary)',
                                 lineHeight: '1.7',
                               }}
                             >
@@ -112,8 +112,8 @@ export const Experience = ({ experiences }: ExperienceProps) => {
 
                       {/* Skills Pills - Max 5 */}
                       <div className="flex flex-wrap gap-2">
-                        {exp.achievements.slice(0, 5).map((achievement, i) => {
-                          const tech = achievement.match(
+                        {exp.tags.slice(0, 5).map((tags, i) => {
+                          const tech = tags.match(
                             /(\w+\.js|\w+\+?|AWS|Redis|Kafka|OAuth2|JWT|Docker|NestJS|PostgreSQL|MySQL|Spring Boot)/gi
                           );
                           return tech

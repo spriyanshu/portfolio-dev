@@ -23,7 +23,8 @@ export const Footer = ({ personalInfo }: FooterProps) => {
             className="text-xs md:text-sm text-center md:text-left order-2 md:order-1"
             style={{ color: 'var(--text-tertiary)' }}
           >
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            © {currentYear} {personalInfo.name}. All rights reserved. | Built with ❤️ by{' '}
+            {personalInfo.name}
           </p>
 
           {/* Social Icons - Centered on mobile */}

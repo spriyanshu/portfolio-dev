@@ -2,7 +2,7 @@
   "personal": {
     "name": "Priyanshu Singh",
     "title": "Backend Software Engineer",
-    "tagline": "Backend engineer crafting scalable systems that solve real problems.",
+    "tagline": "Backend Engineer building reliable, high-performance systems that power real-world innovation.",
     "email": "spriyanshu751@gmail.com",
     "phone": "+91 6392724010",
     "location": "Bangalore, India",
@@ -43,11 +43,11 @@
     }
   },
   "about": {
-    "title": "About me",
-    "description": "Backend Software Engineer with 3+ years of experience building scalable microservices, integrating payment systems, and optimizing cloud-native solutions.",
+    "title": "About Me",
+    "description": "Backend Engineer with 3+ years of experience designing scalable microservices, architecting payment systems, and delivering cloud-native backend solutions.",
     "paragraphs": [
-      "I'm a backend engineer specializing in scalable microservices and cloud-native solutions. My expertise spans Node.js, NestJS, PostgreSQL, Redis, and AWS.",
-      "I focus on building high-performance systems that deliver real business impact. From payment processing handling $2M+ monthly transactions to podcast platforms serving 10,000+ concurrent users."
+      "I’m passionate about building backend systems that are not just scalable but resilient. My expertise spans Node.js, NestJS, PostgreSQL, Redis, and AWS — the tools I use to design reliable, performant services.",
+      "At GeekyAnts, I’ve helped architect systems that process millions in payments and deliver seamless digital experiences. I love optimizing performance, simplifying complex systems, and solving problems that directly impact users and businesses."
     ]
   },
   "experience": [
@@ -56,69 +56,71 @@
       "company": "GeekyAnts",
       "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQGDboRtzGkMrQ/company-logo_200_200/company-logo_200_200/0/1736245737287/geekyants_india_pvt_ltd_logo?e=1762387200&v=beta&t=4vpQRA0ubcOHkYt7CDFcPG7ww1CcRGkvl-7xypKTFkE",
       "position": "Software Engineer",
-      "location": "Bangalore, KA",
+      "location": "Bangalore, India",
       "startDate": "Aug 2022",
       "endDate": "Present",
       "description": "Building scalable backend systems and microservices for enterprise clients",
       "achievements": [
-        "Architected KYC onboarding system deployed by 3 US banks with NestJS and PostgreSQL.",
-        "Built payment processing handling $2M+ monthly across 4 providers with 99.99% uptime."
-      ]
+        "Architected a KYC onboarding platform adopted by 3 US banks, reducing onboarding time by 40% and ensuring PCI-DSS compliance.",
+        "Designed and implemented a multi-provider payment service processing $2M+ in monthly volume with 99.99% uptime and modular API integration."
+      ],
+      "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices", "Payment Processing"]
     },
     {
       "id": "2",
       "company": "Infinisea Software Private Limited",
       "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1762387200&v=beta&t=SEYi4PnxiG999Ew9XM1egPmbqKxL3K8kQ2HA1TVGsK8",
       "position": "Software Engineer Intern",
-      "location": "Lucknow, UP",
+      "location": "Lucknow, India",
       "startDate": "Feb 2022",
       "endDate": "Jul 2022",
       "description": "Developed ERP modules for government authorities",
       "achievements": [
-        "Built ERP modules for 13+ government authorities with MySQL and Spring Boot.",
-        "Optimized SQL queries, reducing report time from 15 min to 45 sec (96% faster)."
-      ]
+        "Delivered ERP solutions for 13+ government authorities, digitizing workflows and improving operational transparency.",
+        "Optimized SQL queries, reducing report time from 5 minutes to 45 seconds."
+      ],
+      "tags": ["MySQL", "Spring Boot", "ERP", "Government Authorities"]
     }
   ],
   "projects": [
     {
-      "id": "2",
+      "id": "1",
       "name": "AI-Powered HR Assistant",
       "shortDescription": "AI chatbot handling 1,000+ daily HR queries with 92% accuracy using GPT-4 and vector search.",
       "longDescription": "Built intelligent AI chatbot handling 1,000+ daily HR queries (policies, leaves, notices) using LangChain and OpenAI GPT-4, achieving 92% query resolution accuracy and reducing HR workload by 45%. Integrated PostgreSQL with SQL Agents for DML operations, processing 500+ database transactions daily with 99.9% data integrity and <50ms query response time. Implemented FAISS vector embeddings for semantic search across 10,000+ documents, improving search accuracy by 25% and reducing search latency from 2 seconds to 300ms.",
       "tags": ["AI", "LangChain", "OpenAI", "PostgreSQL", "FAISS"],
-      "image": "https://prajjwalarora.com/img/projects/hr-bot.png",
+      "image": "/public/hr-bot.png",
       "links": {
-        "demo": "",
-        "github": "",
-        "viewAll": ""
+        "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
+        "github": "https://github.com/spriyanshu/portfolio-devs",
+        "viewAll": "https://github.com/spriyanshu"
       }
     },
     {
-      "id": "1",
-      "name": "Payment Service",
-      "shortDescription": "Microservices payment gateway processing 5,000+ daily transactions with unified API and design patterns.",
-      "longDescription": "Developed modular microservices-based payment service processing 5,000+ daily transactions across 4 payment providers using unified API, reducing integration time for new providers from 2 weeks to 3 days. Applied Strategy and Factory design patterns for provider selection and instantiation, improving code maintainability by 40% and reducing duplicate code by 65%.",
-      "tags": ["NestJS", "Payments", "RabbitMQ", "Redis", "Docker"],
-      "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
+      "id": "3`",
+      "name": "Real-time Podcast Platform",
+      "shortDescription": "Real-time podcast platform with WebRTC and Socket.io serving 10,000+ concurrent listeners.",
+      "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
+      "tags": ["WebRTC", "Socket.io", "RabbitMQ", "Icecast", "Real-time"],
+      "image": "/public/mic.png",
       "links": {
-        "demo": "",
-        "github": "",
-        "viewAll": ""
+        "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
+        "github": "https://github.com/spriyanshu/Lms",
+        "viewAll": "https://github.com/spriyanshu"
       }
     },
 
     {
       "id": "3",
-      "name": "Real-time Podcast Platform",
-      "shortDescription": "Real-time podcast platform with WebRTC and Socket.io serving 10,000+ concurrent listeners.",
-      "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
-      "tags": ["WebRTC", "Socket.io", "RabbitMQ", "Icecast", "Real-time"],
-      "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=600&fit=crop",
+      "name": "Payment Service",
+      "shortDescription": "Microservices payment gateway processing 5,000+ daily transactions with unified API and design patterns.",
+      "longDescription": "Developed modular microservices-based payment service processing 5,000+ daily transactions across 4 payment providers using unified API, reducing integration time for new providers from 2 weeks to 3 days. Applied Strategy and Factory design patterns for provider selection and instantiation, improving code maintainability by 40% and reducing duplicate code by 65%.",
+      "tags": ["NestJS", "Payments", "RabbitMQ", "Redis", "Docker"],
+      "image": "/public/pay.png",
       "links": {
-        "demo": "",
-        "github": "",
-        "viewAll": ""
+        "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
+        "github": "https://github.com/spriyanshu/practice-lld",
+        "viewAll": "https://github.com/spriyanshu"
       }
     }
   ],
@@ -129,28 +131,28 @@
         "items": ["TypeScript", "JavaScript (ES6+)", "Java", "Python", "SQL"]
       },
       {
-        "name": "Frameworks",
+        "name": "Frameworks & Libraries",
         "items": ["NestJS", "Express", "Spring Boot", "GraphQL"]
       },
       {
         "name": "Databases",
-        "items": ["PostgreSQL", "MongoDB", "MySQL", "Redis"]
+        "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
       },
       {
-        "name": "Cloud/DevOps",
+        "name": "Cloud & DevOps",
         "items": ["AWS (EC2, S3, Lambda, RDS)", "Docker", "Kubernetes", "Terraform", "CI/CD"]
       },
       {
         "name": "Architecture",
-        "items": ["Microservices", "Event-Driven", "API Gateway", "Serverless"]
+        "items": ["Microservices", "Event-Driven Systems", "API Gateway", "Serverless"]
       },
       {
-        "name": "Tools",
+        "name": "Tools & Messaging",
         "items": ["Git", "Kafka", "RabbitMQ", "Prometheus", "Grafana"]
       },
       {
-        "name": "Security",
-        "items": ["OAuth2", "JWT", "PCI DSS Compliance", "API Security"]
+        "name": "Security & Compliance",
+        "items": ["OAuth2", "JWT", "PCI DSS", "API Security"]
       }
     ]
   },
@@ -167,18 +169,18 @@
   "featured": [
     {
       "id": "1",
-      "title": "Building Scalable Payment Systems",
+      "title": "Unveiling OpenTelemetry: Your Key to Streamlined Observability",
       "platform": "Tech Blog",
-      "url": "https://blog.spriyanshu.in/",
-      "description": "Featured article on architecting multi-tenant payment processing systems",
+      "url": "https://geekyants.com/blog/unveiling-opentelemetry-your-key-to-streamlined-observability",
+      "description": "Featured technical article exploring OpenTelemetry and modern observability practices.",
       "date": "2024"
     },
     {
       "id": "2",
-      "title": "ChatGPT Powered HR-Bot | ChatGPT Challenge | GeekSpeak | GeekyAnts",
+      "title": "ChatGPT Powered HR-Bot | GeekSpeak | GeekyAnts",
       "platform": "Tech Video",
       "url": "https://youtu.be/itDCzbvJH3s?si=uBu7snT4Z7jkI8eV",
-      "description": "Featured video on building a ChatGPT powered HR-Bot for GeekyAnts",
+      "description": "Featured demo on building a ChatGPT-powered HR-Bot showcased on GeekSpeak.",
       "date": "2023"
     }
   ],

@@ -59,8 +59,8 @@ export const Blog = ({ blogConfig }: BlogProps) => {
               <div
                 className="rounded-xl p-0 transition-all duration-300"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border)',
                 }}
               >
                 {/* Featured Image - Full color, no grayscale */}
@@ -91,13 +91,13 @@ export const Blog = ({ blogConfig }: BlogProps) => {
                 <div className="px-6 pb-6">
                   <h3
                     className="text-lg md:text-xl font-semibold mb-2 line-clamp-2"
-                    style={{ color: '#ffffff' }}
+                    style={{ color: 'var(--text-primary)' }}
                   >
                     {post.title}
                   </h3>
                   <p
                     className="text-sm md:text-base leading-relaxed line-clamp-2 mb-2 md:mb-3"
-                    style={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                    style={{ color: 'var(--text-secondary)' }}
                   >
                     {post.description}
                   </p>

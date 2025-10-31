@@ -38,6 +38,7 @@ export interface About {
 }
 
 export interface Experience {
+  tags: string[];
   id: string;
   company: string;
   companyLogo: string;
