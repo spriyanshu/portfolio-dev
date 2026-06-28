@@ -45,18 +45,6 @@ export const Heart = ({ className = '', style }: StickerProps) => (
   </svg>
 );
 
-export const Flower = ({ className = '', style }: StickerProps) => (
-  <svg viewBox="0 0 100 100" className={className} style={style} aria-hidden="true">
-    <g fill="currentColor" stroke="#3a3d7a" strokeWidth="3">
-      <circle cx="50" cy="22" r="16" />
-      <circle cx="78" cy="50" r="16" />
-      <circle cx="50" cy="78" r="16" />
-      <circle cx="22" cy="50" r="16" />
-    </g>
-    <circle cx="50" cy="50" r="13" fill="#ffd24d" stroke="#3a3d7a" strokeWidth="3" />
-  </svg>
-);
-
 export const Squiggle = ({ className = '', style }: StickerProps) => (
   <svg viewBox="0 0 200 30" className={className} style={style} aria-hidden="true">
     <path

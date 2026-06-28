@@ -89,7 +89,7 @@ export const Hero = ({ personalInfo }: HeroProps) => {
             <span className="tape tape-pink" style={{ top: -12, left: '38%', transform: 'rotate(-8deg)' }} />
             <div className="photo aspect-[4/5] overflow-hidden">
               <img
-                src="/6251128551063096651.png"
+                src="/6251128551063096651.jpg"
                 alt={personalInfo.name}
                 className="w-full h-full object-cover"
               />

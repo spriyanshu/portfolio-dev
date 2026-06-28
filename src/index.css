@@ -28,7 +28,6 @@
     --sky: #8fc4e8;
 
     --paper-shadow: 0 14px 34px rgba(58, 50, 110, 0.22);
-    --paper-shadow-sm: 0 6px 16px rgba(58, 50, 110, 0.18);
   }
 
   html {
@@ -246,9 +245,6 @@
   .btn-candy.white {
     background: #fff;
   }
-  .btn-candy.mint {
-    background: var(--mint);
-  }
 
   /* ---------- Sticker badge (circular) ---------- */
   .sticker {
@@ -286,17 +282,6 @@
   .ink-link:hover::after {
     transform: scaleX(1);
   }
-
-  /* ---------- Postage stamp ---------- */
-  .stamp {
-    background: #fff;
-    padding: 10px;
-    position: relative;
-    box-shadow: var(--paper-shadow-sm);
-    filter: drop-shadow(0 0 0 transparent);
-    -webkit-mask:
-      radial-gradient(circle at 0 0, transparent 5px, #000 5px) -5px -5px / 16px 16px round;
-  }
 }
 
 @layer utilities {
@@ -305,12 +290,6 @@
   }
   .text-ink-soft {
     color: var(--ink-soft);
-  }
-  .text-balance {
-    text-wrap: balance;
-  }
-  .paper-edge {
-    border: 1px solid var(--cream-edge);
   }
 
   @keyframes wiggle {

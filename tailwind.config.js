@@ -32,19 +32,6 @@ export default {
                 marker: ['"Gochi Hand"', 'cursive'],
                 script: ['"Dancing Script"', 'cursive'],
             },
-            rotate: {
-                '1.5': '1.5deg',
-                '2.5': '2.5deg',
-            },
-            animation: {
-                'fade-in': 'fade-in 0.6s ease-in-out',
-            },
-            keyframes: {
-                'fade-in': {
-                    '0%': { opacity: '0' },
-                    '100%': { opacity: '1' },
-                },
-            },
         },
     },
     plugins: [],
