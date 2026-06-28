@@ -1,100 +1,78 @@
 import { motion } from 'framer-motion';
 import { Project } from '@/types';
+import { Sparkle, Heart } from '@/components/Stickers';
 
 interface ProjectsProps {
   projects: Project[];
 }
 
+const rots = [-4, 3, -2.5, 4, -3];
+const tapeCls = ['tape', 'tape tape-pink', 'tape tape-mint', 'tape tape-sky'];
+
 export const Projects = ({ projects }: ProjectsProps) => {
   return (
-    <section
-      id="projects"
-      className="section-spacing  relative min-h-screen flex items-center overflow-hidden"
-    >
-      <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-semibold mb-12 md:mb-16"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          Selected Work
-        </motion.h2>
+    <section id="projects" className="section-spacing relative overflow-hidden">
+      <Heart className="absolute top-12 left-[6%] w-10 h-10 text-candy-pink animate-bob hidden md:block" />
 
-        {/* 1 col mobile, 2 col tablet, 3 col desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+      <div className="container-custom">
+        <div className="text-center mb-14">
+          <p className="kicker">stuff i've made</p>
+          <h2 className="signature text-6xl md:text-7xl mt-1">my little gallery</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="project-card group"
+              initial={{ opacity: 0, y: 40, rotate: 0 }}
+              whileInView={{ opacity: 1, y: 0, rotate: rots[index % rots.length] }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: (index % 3) * 0.08, ease: [0.34, 1.56, 0.64, 1] }}
+              className="polaroid tilt relative"
+              style={{ '--rot': `${rots[index % rots.length]}deg` } as React.CSSProperties}
             >
-              {/* Image - Full color, no grayscale, with border and shadow */}
-              <div className="relative mb-4 md:mb-6 overflow-hidden rounded-xl aspect-video">
+              <span
+                className={tapeCls[index % tapeCls.length]}
+                style={{ top: -12, left: '50%', marginLeft: -46, transform: 'rotate(-5deg)' }}
+              />
+
+              <div className="photo aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-cover"
                   loading="lazy"
-                  style={{
-                    border: '1px solid var(--border)',
-                    boxShadow: '0 4px 12px var(--shadow)',
-                  }}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Content */}
-              <div>
-                <h3
-                  className="text-lg md:text-xl font-semibold mb-2 md:mb-3"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  {project.name}
-                </h3>
-                <p
-                  className="text-sm md:text-base leading-relaxed mb-3 md:mb-4 line-clamp-3"
-                  style={{ color: 'var(--text-secondary)' }}
-                >
+              <div className="px-1 pt-1 pb-3">
+                <h3 className="caption !text-3xl !py-1">{project.name}</h3>
+                <p className="font-sans text-sm text-ink-soft font-semibold text-center leading-snug line-clamp-3 px-1">
                   {project.shortDescription}
                 </p>
 
-                {/* Tech Stack Pills - Max 4 tags */}
-                <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
+                <div className="flex flex-wrap justify-center gap-1.5 mt-3">
                   {project.tags.slice(0, 4).map((tag, i) => (
-                    <span key={i} className="pill">
+                    <span
+                      key={tag}
+                      className={`chip !text-xs !px-2.5 !py-0.5 !shadow-none border ${
+                        ['chip-mint', 'chip-sky', 'chip-pink', 'chip-coral'][i % 4]
+                      }`}
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* CTA Links with arrows */}
-                <div className="flex items-center gap-4 flex-wrap">
+                <div className="flex items-center justify-center gap-4 mt-4">
                   {project.links.demo && (
                     <a
                       href={project.links.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-link text-sm"
+                      className="ink-link font-marker text-lg"
                     >
-                      View Live
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                      live ↗
                     </a>
                   )}
                   {project.links.github && (
@@ -102,26 +80,17 @@ export const Projects = ({ projects }: ProjectsProps) => {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-link text-sm"
+                      className="ink-link font-marker text-lg"
                     >
-                      GitHub
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                      code ↗
                     </a>
                   )}
                 </div>
               </div>
+
+              {index === 0 && (
+                <Sparkle className="absolute -top-5 -right-4 w-10 h-10 text-candy-yellow animate-wiggle" />
+              )}
             </motion.div>
           ))}
         </div>

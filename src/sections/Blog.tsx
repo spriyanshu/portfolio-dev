@@ -11,37 +11,16 @@ export const Blog = ({ blogConfig }: BlogProps) => {
 
   if (loading || error || posts.length === 0) return null;
 
+  const rots = [-3, 2.5, -2];
+
   return (
-    <section
-      id="blog"
-      className="section-spacing  relative min-h-screen flex items-center overflow-hidden "
-    >
+    <section id="blog" className="section-spacing relative overflow-hidden">
       <div className="container-custom">
-        <div className="flex items-end justify-between mb-12 md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-semibold"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            Latest Articles
-          </motion.h2>
-          <a
-            href={blogConfig.externalBlogUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-link text-sm hidden sm:inline-flex"
-          >
-            View all
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+        <div className="text-center mb-12">
+          <p className="kicker">things i write</p>
+          <h2 className="signature text-6xl md:text-7xl mt-1">my journal</h2>
         </div>
 
-        {/* 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {posts.slice(0, 3).map((post, index) => (
             <motion.a
@@ -50,91 +29,54 @@ export const Blog = ({ blogConfig }: BlogProps) => {
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group cursor-pointer"
+              whileInView={{ opacity: 1, y: 0, rotate: rots[index % rots.length] }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.55, delay: index * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+              className="paper tilt relative block overflow-hidden"
+              style={{ '--rot': `${rots[index % rots.length]}deg` } as React.CSSProperties}
             >
-              {/* Blog Card with Better Dark Mode Visibility */}
-              <div
-                className="rounded-xl p-0 transition-all duration-300"
-                style={{
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border)',
-                }}
-              >
-                {/* Featured Image - Full color, no grayscale */}
-                <div className="relative mb-4 overflow-hidden rounded-t-xl aspect-video">
-                  {post.thumbnail ? (
-                    <img
-                      src={post.thumbnail}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                      style={{
-                        filter: 'brightness(1.0) group-hover:brightness(1.05)',
-                      }}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
-                  )}
+              <div className="relative overflow-hidden aspect-video">
+                {post.thumbnail ? (
+                  <img
+                    src={post.thumbnail}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-lav-soft to-candy-pink" />
+                )}
+                <span className="chip chip-yellow absolute top-3 left-3 !text-xs">article</span>
+              </div>
 
-                  {/* Category overlay */}
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-full backdrop-blur-sm bg-black/50 text-white">
-                      Article
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content - Better text contrast */}
-                <div className="px-6 pb-6">
-                  <h3
-                    className="text-lg md:text-xl font-semibold mb-2 line-clamp-2"
-                    style={{ color: 'var(--text-primary)' }}
-                  >
-                    {post.title}
-                  </h3>
-                  <p
-                    className="text-sm md:text-base leading-relaxed line-clamp-2 mb-2 md:mb-3"
-                    style={{ color: 'var(--text-secondary)' }}
-                  >
-                    {post.description}
-                  </p>
-
-                  {/* Meta - date + read time */}
-                  <div
-                    className="flex items-center gap-2 md:gap-3 text-xs"
-                    style={{ color: 'var(--text-tertiary)' }}
-                  >
-                    <span>
-                      {new Date(post.pubDate).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
-                    </span>
-                    <span>•</span>
-                    <span>5 min read</span>
-                  </div>
-                </div>
+              <div className="p-5">
+                <h3 className="font-script text-2xl font-bold text-ink leading-tight line-clamp-2">
+                  {post.title}
+                </h3>
+                <p className="font-sans font-semibold text-ink-soft text-sm mt-2 line-clamp-2">
+                  {post.description}
+                </p>
+                <p className="font-marker text-ink-soft mt-3">
+                  {new Date(post.pubDate).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                  })}{' '}
+                  · 5 min read
+                </p>
               </div>
             </motion.a>
           ))}
         </div>
 
-        {/* View all link for mobile */}
-        <div className="mt-8 text-center sm:hidden">
+        <div className="mt-10 text-center">
           <a
             href={blogConfig.externalBlogUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-link"
+            className="btn-candy white"
           >
-            View all articles
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            read the whole journal ↗
           </a>
         </div>
       </div>

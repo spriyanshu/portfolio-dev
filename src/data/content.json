@@ -1,8 +1,8 @@
 {
   "personal": {
     "name": "Priyanshu Singh",
-    "title": "Backend Software Engineer",
-    "tagline": "Backend Engineer building reliable, high-performance systems that power real-world innovation.",
+    "title": "Backend Engineer",
+    "tagline": "backend engineer who makes servers behave & payments flow — without the drama.",
     "email": "spriyanshu751@gmail.com",
     "phone": "+91 6392724010",
     "location": "Bangalore, India",
@@ -43,22 +43,37 @@
     }
   },
   "about": {
-    "title": "About Me",
-    "description": "Backend Engineer with 3+ years of experience designing scalable microservices, architecting payment systems, and delivering cloud-native backend solutions.",
+    "title": "hi, i'm Priyanshu",
+    "description": "backend engineer with 4+ years spent designing scalable microservices, wrangling payment systems, and shipping cloud-native services.",
     "paragraphs": [
-      "I’m passionate about building backend systems that are not just scalable but resilient. My expertise spans Node.js, NestJS, PostgreSQL, Redis, and AWS — the tools I use to design reliable, performant services.",
-      "At GeekyAnts, I’ve helped architect systems that process millions in payments and deliver seamless digital experiences. I love optimizing performance, simplifying complex systems, and solving problems that directly impact users and businesses."
+      "I’m a backend nerd who loves building systems that don’t fall over at 2am. Node.js, NestJS, PostgreSQL, Redis & AWS are my everyday toolkit for keeping things fast and reliable.",
+      "At GeekyAnts I helped build systems that move millions in payments and power smooth digital experiences. I’m happiest untangling messy systems, simplifying the complicated, and shaving milliseconds off slow queries."
     ]
   },
   "experience": [
     {
       "id": "1",
+      "company": "Warner Bros. Discovery",
+      "companyLogo": "data:image/jpeg;base64,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",
+      "position": "Software Engineer",
+      "location": "Bangalore, India",
+      "startDate": "Dec 2025",
+      "endDate": "Present",
+      "description": "Building scalable backend systems and microservices for enterprise clients",
+      "achievements": [
+        "Contributed to the backend development of Bleacher Report, working on Node.js services and GraphQL APIs to support high-traffic sports content delivery, optimizing data fetching and improving API performance and scalability.",
+        "Implemented comprehensive monitoring and observability using Datadog metrics, dashboards, and alerts to track system health, performance bottlenecks, and error rates, improving production visibility and reducing downtime."
+      ],
+      "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices"]
+    },
+    {
+      "id": "2",
       "company": "GeekyAnts",
-      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQGDboRtzGkMrQ/company-logo_200_200/company-logo_200_200/0/1736245737287/geekyants_india_pvt_ltd_logo?e=1762387200&v=beta&t=4vpQRA0ubcOHkYt7CDFcPG7ww1CcRGkvl-7xypKTFkE",
+      "companyLogo": "https://avatars.githubusercontent.com/u/18482943?s=200&v=4",
       "position": "Software Engineer",
       "location": "Bangalore, India",
       "startDate": "Aug 2022",
-      "endDate": "Present",
+      "endDate": "Dec 2025",
       "description": "Building scalable backend systems and microservices for enterprise clients",
       "achievements": [
         "Architected a KYC onboarding platform adopted by 3 US banks, reducing onboarding time by 40% and ensuring PCI-DSS compliance.",
@@ -67,13 +82,13 @@
       "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices", "Payment Processing"]
     },
     {
-      "id": "2",
+      "id": "3",
       "company": "Infinisea Software Private Limited",
-      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1762387200&v=beta&t=SEYi4PnxiG999Ew9XM1egPmbqKxL3K8kQ2HA1TVGsK8",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1784160000&v=beta&t=6DvXrGHCEs4at3ovEy5yrDGhREtM-RQrOJ8XEKaoQT8",
       "position": "Software Engineer Intern",
       "location": "Lucknow, India",
       "startDate": "Feb 2022",
-      "endDate": "Jul 2022",
+      "endDate": "Aug 2022",
       "description": "Developed ERP modules for government authorities",
       "achievements": [
         "Delivered ERP solutions for 13+ government authorities, digitizing workflows and improving operational transparency.",
@@ -97,7 +112,7 @@
       }
     },
     {
-      "id": "3`",
+      "id": "2",
       "name": "Real-time Podcast Platform",
       "shortDescription": "Real-time podcast platform with WebRTC and Socket.io serving 10,000+ concurrent listeners.",
       "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
@@ -172,7 +187,7 @@
       "title": "Unveiling OpenTelemetry: Your Key to Streamlined Observability",
       "platform": "Tech Blog",
       "url": "https://geekyants.com/blog/unveiling-opentelemetry-your-key-to-streamlined-observability",
-      "description": "Featured technical article exploring OpenTelemetry and modern observability practices.",
+      "description": "my take on OpenTelemetry & keeping modern systems observable.",
       "date": "2024"
     },
     {
@@ -180,7 +195,7 @@
       "title": "ChatGPT Powered HR-Bot | GeekSpeak | GeekyAnts",
       "platform": "Tech Video",
       "url": "https://youtu.be/itDCzbvJH3s?si=uBu7snT4Z7jkI8eV",
-      "description": "Featured demo on building a ChatGPT-powered HR-Bot showcased on GeekSpeak.",
+      "description": "me on stage at GeekSpeak, demoing a ChatGPT-powered HR-Bot.",
       "date": "2023"
     }
   ],
@@ -189,8 +204,8 @@
     "rssUrl": "https://blog.spriyanshu.in/rss.xml"
   },
   "contact": {
-    "title": "Get In Touch",
-    "description": "I'm always open to discussing new opportunities, interesting projects, or potential collaborations. Feel free to reach out!",
+    "title": "let's build something",
+    "description": "got a project, a role, or just want to nerd out about backend stuff? my inbox is always open.",
     "email": "spriyanshu751@gmail.com"
   }
 }

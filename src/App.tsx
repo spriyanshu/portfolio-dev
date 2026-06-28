@@ -4,6 +4,7 @@ import { Hero } from '@/sections/Hero';
 import { About } from '@/sections/About';
 import { Experience } from '@/sections/Experience';
 import { Projects } from '@/sections/Projects';
+import { Life } from '@/sections/Life';
 import { Skills } from '@/sections/Skills';
 import { Blog } from '@/sections/Blog';
 import { Featured } from '@/sections/Featured';
@@ -26,6 +27,8 @@ function App() {
         {content.sections.experience.enabled && <Experience experiences={content.experience} />}
 
         {content.sections.projects.enabled && <Projects projects={content.projects} />}
+
+        <Life />
 
         {content.sections.skills.enabled && <Skills skills={content.skills} />}
 

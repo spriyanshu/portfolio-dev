@@ -1,174 +1,137 @@
 import { motion } from 'framer-motion';
 import { PersonalInfo } from '@/types';
+import { Star, Sparkle, Heart, FivePointStar, Squiggle, Arrow } from '@/components/Stickers';
 
 interface HeroProps {
   personalInfo: PersonalInfo;
 }
 
+const float = (delay = 0) => ({
+  initial: { opacity: 0, y: 24, scale: 0.9 },
+  animate: { opacity: 1, y: 0, scale: 1 },
+  transition: { duration: 0.6, delay, ease: [0.34, 1.56, 0.64, 1] as const },
+});
+
 export const Hero = ({ personalInfo }: HeroProps) => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="max-w-4xl relative"
-        >
-          {/* Left Accent Line - Same as About section */}
-          <div className="absolute -left-4 md:-left-6 top-0 accent-line"></div>
+    <section className="relative overflow-hidden pt-28 md:pt-36 pb-12 md:pb-20">
+      {/* scattered background stickers */}
+      <Sparkle className="absolute top-28 left-[6%] w-10 h-10 text-candy-yellow animate-bob hidden sm:block" />
+      <Star className="absolute top-1/2 right-[5%] w-8 h-8 text-candy-mint animate-wiggle hidden sm:block" />
+      <Heart className="absolute bottom-16 left-[12%] w-9 h-9 text-candy-pink hidden md:block" />
 
-          {/* Name & Title - Left-aligned */}
-          <div className="mb-6 md:mb-8">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 tracking-tight"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              {personalInfo.name}
-            </h1>
-            <p
-              className="text-xl sm:text-2xl md:text-3xl font-medium"
-              style={{ color: 'var(--text-secondary)' }}
-            >
-              {personalInfo.title}
-            </p>
-          </div>
+      <div className="container-custom grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
+        {/* ---- Left: handwritten intro ---- */}
+        <div className="relative z-10 text-center lg:text-left">
+          <motion.span {...float(0)} className="chip chip-yellow mb-5">
+            ✿ backend engineer · est. 2022
+          </motion.span>
 
-          {/* Concise Tagline - Max 600px width, left-aligned */}
-          <p
-            className="text-base sm:text-lg md:text-xl leading-relaxed max-w-[600px] mb-8 md:mb-12"
-            style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}
+          <motion.h1 {...float(0.08)} className="mt-4">
+            <span className="block font-hand text-3xl md:text-4xl text-ink-soft -rotate-2">
+              hey there, i'm
+            </span>
+            <span className="signature block text-7xl md:text-8xl lg:text-[8.5rem] mt-1">
+              {personalInfo.name.split(' ')[0]}
+            </span>
+            <span className="block font-marker text-2xl md:text-3xl text-ink mt-2">
+              {personalInfo.name.split(' ').slice(1).join(' ')}
+            </span>
+          </motion.h1>
+
+          <motion.div {...float(0.16)} className="flex justify-center lg:justify-start my-3 text-candy-pink-deep">
+            <Squiggle className="w-44 h-5" style={{ color: 'var(--pink-deep)' }} />
+          </motion.div>
+
+          <motion.p
+            {...float(0.22)}
+            className="font-sans text-lg md:text-xl text-ink-soft max-w-[520px] mx-auto lg:mx-0 mt-2 font-semibold"
           >
             {personalInfo.tagline}
-          </p>
+          </motion.p>
 
-          {/* CTAs - Left-aligned, Stack on mobile with 10px gap */}
-          <div className="flex flex-col sm:flex-row items-start gap-2.5 sm:gap-4 mb-10 md:mb-12">
-            <a href="#contact" className="btn-primary">
-              Get in touch
+          <motion.div
+            {...float(0.3)}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-7"
+          >
+            <a href="#contact" className="btn-candy pink">
+              let's chat ♡
             </a>
-            <a href={personalInfo.resumeUrl} download className="btn-outline">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 1 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                />
-              </svg>
-              Download CV
+            <a href={personalInfo.resumeUrl} download className="btn-candy white">
+              grab my résumé
             </a>
-          </div>
+          </motion.div>
 
-          {/* Social Icons - Left-aligned, 28px on mobile, 24px gaps */}
-          <div className="flex items-center gap-6 md:gap-6 mt-6">
-            <a
-              href={personalInfo.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon"
-              aria-label="GitHub"
-            >
-              <svg
-                className="w-6 md:w-6 h-6 md:h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
+          <motion.div
+            {...float(0.38)}
+            className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mt-6"
+          >
+            {['NestJS', 'PostgreSQL', 'AWS', 'Redis', 'Microservices'].map((t, i) => (
+              <span
+                key={t}
+                className={`chip ${['chip-mint', 'chip-sky', 'chip-pink', 'chip-coral', ''][i % 5]}`}
+                style={{ transform: `rotate(${i % 2 ? 2 : -2}deg)` }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
-                />
-              </svg>
-            </a>
-            <a
-              href={personalInfo.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon"
-              aria-label="LinkedIn"
-            >
-              <svg
-                className="w-6 md:w-6 h-6 md:h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                />
-                <circle cx="4" cy="4" r="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-            <a
-              href={personalInfo.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon"
-              aria-label="Twitter"
-            >
-              <svg
-                className="w-6 md:w-6 h-6 md:h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-                />
-              </svg>
-            </a>
-            <a href={personalInfo.social.email} className="social-icon" aria-label="Email">
-              <svg
-                className="w-6 md:w-6 h-6 md:h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span
-          className="text-xs uppercase tracking-wider"
-          style={{ color: 'var(--text-tertiary)' }}
-        >
-          Scroll
-        </span>
-        <div className="scroll-indicator">
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+                {t}
+              </span>
+            ))}
+          </motion.div>
         </div>
-      </motion.div>
+
+        {/* ---- Right: collage board ---- */}
+        <div className="relative h-[420px] sm:h-[480px] lg:h-[540px]">
+          {/* big polaroid */}
+          <motion.div
+            {...float(0.2)}
+            className="tilt absolute left-[8%] top-2 w-52 sm:w-60 polaroid"
+            style={{ '--rot': '-5deg' } as React.CSSProperties}
+          >
+            <span className="tape tape-pink" style={{ top: -12, left: '38%', transform: 'rotate(-8deg)' }} />
+            <div className="photo aspect-[4/5] overflow-hidden">
+              <img
+                src="/6251128551063096651.png"
+                alt={personalInfo.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="caption">that's me :)</p>
+          </motion.div>
+
+          {/* note card */}
+          <motion.div
+            {...float(0.34)}
+            className="tilt absolute right-[4%] top-16 w-56 paper paper-note p-5"
+            style={{ '--rot': '4deg' } as React.CSSProperties}
+          >
+            <span className="pin" style={{ top: -8, left: '50%' }} />
+            <p className="font-hand text-2xl text-ink leading-snug">
+              building reliable systems that move millions — one clean API at a time.
+            </p>
+            <p className="font-marker text-base text-ink-soft mt-3">— from {personalInfo.location} 📍</p>
+          </motion.div>
+
+          {/* stats sticker */}
+          <motion.div
+            {...float(0.46)}
+            className="tilt absolute left-[2%] bottom-2 w-44 paper p-4 text-center"
+            style={{ '--rot': '-3deg' } as React.CSSProperties}
+          >
+            <span className="tape tape-mint" style={{ top: -12, right: 12, transform: 'rotate(10deg)' }} />
+            <div className="flex items-end justify-center gap-1">
+              <span className="signature text-5xl text-candy-pink-deep">3+</span>
+              <span className="font-marker text-lg text-ink mb-1">yrs</span>
+            </div>
+            <p className="font-marker text-base text-ink-soft">shipping backend magic</p>
+          </motion.div>
+
+          {/* arrow doodle */}
+          <Arrow
+            className="absolute right-[30%] bottom-10 w-24 h-16 text-ink hidden sm:block"
+            style={{ transform: 'rotate(8deg)' }}
+          />
+          <FivePointStar className="absolute right-[8%] bottom-6 w-12 h-12 text-candy-yellow animate-wiggle" />
+        </div>
+      </div>
     </section>
   );
 };

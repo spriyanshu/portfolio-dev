@@ -1,136 +1,82 @@
 import { motion } from 'framer-motion';
 import { Experience as ExperienceType } from '@/types';
+import { Star } from '@/components/Stickers';
 
 interface ExperienceProps {
   experiences: ExperienceType[];
 }
 
+const tapes = ['tape', 'tape tape-mint', 'tape tape-sky', 'tape tape-pink'];
+
 export const Experience = ({ experiences }: ExperienceProps) => {
   return (
-    <section
-      id="experience"
-      className="section-spacing relative min-h-screen flex items-center overflow-hidden "
-    >
+    <section id="experience" className="section-spacing relative overflow-hidden">
       <div className="container-custom">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-semibold mb-12 md:mb-16"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          Experience
-        </motion.h2>
+        <div className="text-center mb-12">
+          <p className="kicker">where i've been</p>
+          <h2 className="signature text-6xl md:text-7xl mt-1">the gig diary</h2>
+        </div>
 
-        <div className="relative pl-6 md:pl-8">
-          {/* Vertical Timeline Line */}
-          <div className="timeline-line"></div>
+        <div className="space-y-10 max-w-3xl mx-auto">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              initial={{ opacity: 0, y: 30, rotate: index % 2 ? 2 : -2 }}
+              whileInView={{ opacity: 1, y: 0, rotate: index % 2 ? 1.2 : -1.2 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6 }}
+              className="paper relative p-6 md:p-8 tilt"
+              style={{ '--rot': `${index % 2 ? 1.2 : -1.2}deg` } as React.CSSProperties}
+            >
+              <span
+                className={tapes[index % tapes.length]}
+                style={{ top: -13, left: '50%', marginLeft: -46, transform: 'rotate(-4deg)' }}
+              />
 
-          <div className="space-y-12 md:space-y-16">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative group"
-              >
-                {/* Timeline Dot */}
-                {/* <div className="timeline-dot top-2"></div> */}
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="sticker w-14 h-14 flex-shrink-0 overflow-hidden p-0">
+                  <img src={exp.companyLogo} alt={exp.company} className="w-full h-full object-cover" />
+                </div>
 
-                {/* Content */}
-                <div className="transition-all duration-300 hover:translate-x-1">
-                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4 mb-3 md:mb-4">
-                    {/* Company Logo - No grayscale */}
-                    <img
-                      src={exp.companyLogo}
-                      alt={exp.company}
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg object-cover transition-all duration-300"
-                    />
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
-                        <div className="min-w-0">
-                          <h3
-                            className="text-xl md:text-2xl font-semibold mb-1"
-                            style={{ color: 'var(--text-primary)' }}
-                          >
-                            {exp.position}
-                          </h3>
-                          <p className="text-base md:text-lg" style={{ color: 'var(--accent)' }}>
-                            {exp.company}
-                          </p>
-                        </div>
-                        <div className="sm:text-right flex-shrink-0">
-                          <span className="pill inline-block">
-                            {exp.startDate} - {exp.endDate}
-                          </span>
-                          <p
-                            className="text-xs md:text-sm mt-1"
-                            style={{ color: 'var(--text-tertiary)' }}
-                          >
-                            {exp.location}
-                          </p>
-                        </div>
-                      </div>
-
-                      <p
-                        className="text-sm md:text-base mb-3 md:mb-4"
-                        style={{ color: 'var(--text-secondary)' }}
-                      >
-                        {exp.description}
-                      </p>
-
-                      {/* Achievements with Accent Border and Better Contrast */}
-                      <ul className="space-y-2 md:space-y-3 mb-3 md:mb-4">
-                        {exp.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="flex gap-3 pl-3 border-l-2 transition-colors"
-                            style={{ borderColor: 'rgba(59, 130, 246, 0.3)' }}
-                          >
-                            <span
-                              className="flex-shrink-0 mt-0.5"
-                              style={{ color: 'var(--accent)' }}
-                            >
-                              •
-                            </span>
-                            <span
-                              className="text-sm md:text-base"
-                              style={{
-                                color: 'var(--text-secondary)',
-                                lineHeight: '1.7',
-                              }}
-                            >
-                              {achievement}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Skills Pills - Max 5 */}
-                      <div className="flex flex-wrap gap-2">
-                        {exp.tags.slice(0, 5).map((tags, i) => {
-                          const tech = tags.match(
-                            /(\w+\.js|\w+\+?|AWS|Redis|Kafka|OAuth2|JWT|Docker|NestJS|PostgreSQL|MySQL|Spring Boot)/gi
-                          );
-                          return tech
-                            ? tech.slice(0, 5).map((t, ti) => (
-                                <span key={`${i}-${ti}`} className="pill">
-                                  {t}
-                                </span>
-                              ))
-                            : null;
-                        })}
-                      </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div>
+                      <h3 className="font-script text-3xl font-bold text-ink leading-none">
+                        {exp.position}
+                      </h3>
+                      <p className="font-marker text-xl text-candy-pink-deep mt-1">{exp.company}</p>
                     </div>
+                    <span className="chip chip-yellow flex-shrink-0 self-start">
+                      {exp.startDate} → {exp.endDate}
+                    </span>
+                  </div>
+
+                  <p className="font-sans font-semibold text-ink-soft mt-3">{exp.description}</p>
+
+                  <ul className="space-y-2 mt-4">
+                    {exp.achievements.map((a, i) => (
+                      <li key={i} className="flex gap-2 font-sans text-ink-soft font-semibold">
+                        <Star className="w-4 h-4 mt-1.5 flex-shrink-0 text-candy-pink" />
+                        <span>{a}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {exp.tags.slice(0, 5).map((t, i) => (
+                      <span
+                        key={t}
+                        className={`chip ${['chip-mint', 'chip-sky', 'chip-pink', 'chip-coral', ''][i % 5]}`}
+                        style={{ transform: `rotate(${i % 2 ? 1.5 : -1.5}deg)` }}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
