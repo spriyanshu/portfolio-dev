@@ -1,8 +1,8 @@
 {
   "personal": {
     "name": "Priyanshu Singh",
-    "title": "Backend Software Engineer",
-    "tagline": "Backend Engineer building reliable, high-performance systems that power real-world innovation.",
+    "title": "Backend Engineer",
+    "tagline": "backend engineer who makes servers behave & payments flow — without the drama.",
     "email": "spriyanshu751@gmail.com",
     "phone": "+91 6392724010",
     "location": "Bangalore, India",
@@ -43,22 +43,37 @@
     }
   },
   "about": {
-    "title": "About Me",
-    "description": "Backend Engineer with 3+ years of experience designing scalable microservices, architecting payment systems, and delivering cloud-native backend solutions.",
+    "title": "hi, i'm Priyanshu",
+    "description": "backend engineer with 4+ years spent designing scalable microservices, wrangling payment systems, and shipping cloud-native services.",
     "paragraphs": [
-      "I’m passionate about building backend systems that are not just scalable but resilient. My expertise spans Node.js, NestJS, PostgreSQL, Redis, and AWS — the tools I use to design reliable, performant services.",
-      "At GeekyAnts, I’ve helped architect systems that process millions in payments and deliver seamless digital experiences. I love optimizing performance, simplifying complex systems, and solving problems that directly impact users and businesses."
+      "I’m a backend nerd who loves building systems that don’t fall over at 2am. Node.js, NestJS, PostgreSQL, Redis & AWS are my everyday toolkit for keeping things fast and reliable.",
+      "At GeekyAnts I helped build systems that move millions in payments and power smooth digital experiences. I’m happiest untangling messy systems, simplifying the complicated, and shaving milliseconds off slow queries."
     ]
   },
   "experience": [
     {
       "id": "1",
+      "company": "Warner Bros. Discovery",
+      "companyLogo": "/warner-bros-logo.jpg",
+      "position": "Software Engineer",
+      "location": "Bangalore, India",
+      "startDate": "Dec 2025",
+      "endDate": "Present",
+      "description": "Building scalable backend systems and microservices for enterprise clients",
+      "achievements": [
+        "Contributed to the backend development of Bleacher Report, working on Node.js services and GraphQL APIs to support high-traffic sports content delivery, optimizing data fetching and improving API performance and scalability.",
+        "Implemented comprehensive monitoring and observability using Datadog metrics, dashboards, and alerts to track system health, performance bottlenecks, and error rates, improving production visibility and reducing downtime."
+      ],
+      "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices"]
+    },
+    {
+      "id": "2",
       "company": "GeekyAnts",
-      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQGDboRtzGkMrQ/company-logo_200_200/company-logo_200_200/0/1736245737287/geekyants_india_pvt_ltd_logo?e=1762387200&v=beta&t=4vpQRA0ubcOHkYt7CDFcPG7ww1CcRGkvl-7xypKTFkE",
+      "companyLogo": "https://avatars.githubusercontent.com/u/18482943?s=200&v=4",
       "position": "Software Engineer",
       "location": "Bangalore, India",
       "startDate": "Aug 2022",
-      "endDate": "Present",
+      "endDate": "Dec 2025",
       "description": "Building scalable backend systems and microservices for enterprise clients",
       "achievements": [
         "Architected a KYC onboarding platform adopted by 3 US banks, reducing onboarding time by 40% and ensuring PCI-DSS compliance.",
@@ -67,13 +82,13 @@
       "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices", "Payment Processing"]
     },
     {
-      "id": "2",
+      "id": "3",
       "company": "Infinisea Software Private Limited",
-      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1762387200&v=beta&t=SEYi4PnxiG999Ew9XM1egPmbqKxL3K8kQ2HA1TVGsK8",
+      "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1784160000&v=beta&t=6DvXrGHCEs4at3ovEy5yrDGhREtM-RQrOJ8XEKaoQT8",
       "position": "Software Engineer Intern",
       "location": "Lucknow, India",
       "startDate": "Feb 2022",
-      "endDate": "Jul 2022",
+      "endDate": "Aug 2022",
       "description": "Developed ERP modules for government authorities",
       "achievements": [
         "Delivered ERP solutions for 13+ government authorities, digitizing workflows and improving operational transparency.",
@@ -97,7 +112,7 @@
       }
     },
     {
-      "id": "3`",
+      "id": "2",
       "name": "Real-time Podcast Platform",
       "shortDescription": "Real-time podcast platform with WebRTC and Socket.io serving 10,000+ concurrent listeners.",
       "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
@@ -172,7 +187,7 @@
       "title": "Unveiling OpenTelemetry: Your Key to Streamlined Observability",
       "platform": "Tech Blog",
       "url": "https://geekyants.com/blog/unveiling-opentelemetry-your-key-to-streamlined-observability",
-      "description": "Featured technical article exploring OpenTelemetry and modern observability practices.",
+      "description": "my take on OpenTelemetry & keeping modern systems observable.",
       "date": "2024"
     },
     {
@@ -180,7 +195,7 @@
       "title": "ChatGPT Powered HR-Bot | GeekSpeak | GeekyAnts",
       "platform": "Tech Video",
       "url": "https://youtu.be/itDCzbvJH3s?si=uBu7snT4Z7jkI8eV",
-      "description": "Featured demo on building a ChatGPT-powered HR-Bot showcased on GeekSpeak.",
+      "description": "me on stage at GeekSpeak, demoing a ChatGPT-powered HR-Bot.",
       "date": "2023"
     }
   ],
@@ -189,8 +204,8 @@
     "rssUrl": "https://blog.spriyanshu.in/rss.xml"
   },
   "contact": {
-    "title": "Get In Touch",
-    "description": "I'm always open to discussing new opportunities, interesting projects, or potential collaborations. Feel free to reach out!",
+    "title": "let's build something",
+    "description": "got a project, a role, or just want to nerd out about backend stuff? my inbox is always open.",
     "email": "spriyanshu751@gmail.com"
   }
 }
