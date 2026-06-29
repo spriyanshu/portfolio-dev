@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { PersonalInfo } from '@/types';
 import { FivePointStar } from './Stickers';
+import { confettiFromEvent } from '@/utils/confetti';
 
 interface HeaderProps {
   personalInfo: PersonalInfo;
@@ -63,7 +64,11 @@ export const Header = ({ personalInfo }: HeaderProps) => {
                 {item.name}
               </a>
             ))}
-            <a href="#contact" className="btn-candy pink !py-2 !px-5 !text-base">
+            <a
+              href="#contact"
+              onClick={confettiFromEvent}
+              className="btn-candy pink !py-2 !px-5 !text-base"
+            >
               say hi!
             </a>
           </div>
@@ -111,7 +116,10 @@ export const Header = ({ personalInfo }: HeaderProps) => {
             ))}
             <a
               href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => {
+                confettiFromEvent(e);
+                setIsMobileMenuOpen(false);
+              }}
               className="btn-candy pink mt-2"
             >
               say hi!

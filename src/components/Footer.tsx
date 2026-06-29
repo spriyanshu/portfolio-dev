@@ -1,5 +1,5 @@
 import { PersonalInfo } from '@/types';
-import { FivePointStar, Squiggle } from './Stickers';
+import { FivePointStar, AnimatedSquiggle } from './Stickers';
 
 interface FooterProps {
   personalInfo: PersonalInfo;
@@ -39,7 +39,7 @@ export const Footer = ({ personalInfo }: FooterProps) => {
               <p className="font-hand text-2xl text-ink-soft mt-3 max-w-xs leading-snug">
                 backend engineer · cloud tinkerer · coffee-powered ☕
               </p>
-              <Squiggle className="w-40 h-4 mt-2 text-candy-pink-deep" style={{ color: 'var(--pink-deep)' }} />
+              <AnimatedSquiggle className="w-40 h-4 mt-2" style={{ color: 'var(--pink-deep)' }} />
             </div>
 
             {/* Browse */}

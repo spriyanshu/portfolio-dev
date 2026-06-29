@@ -1,7 +1,9 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { Loader } from '@/components/Loader';
 import { Hero } from '@/sections/Hero';
 import { About } from '@/sections/About';
+import { Currently } from '@/sections/Currently';
 import { Experience } from '@/sections/Experience';
 import { Projects } from '@/sections/Projects';
 import { Life } from '@/sections/Life';
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <Loader />
       <Header personalInfo={content.personal} />
 
       <main>
@@ -24,11 +27,17 @@ function App() {
 
         {content.sections.about.enabled && <About about={content.about} />}
 
+        <Currently />
+
         {content.sections.experience.enabled && <Experience experiences={content.experience} />}
 
         {content.sections.projects.enabled && <Projects projects={content.projects} />}
 
+        <div className="torn-divider" aria-hidden="true" />
+
         <Life />
+
+        <div className="torn-divider flip" aria-hidden="true" />
 
         {content.sections.skills.enabled && <Skills skills={content.skills} />}
 

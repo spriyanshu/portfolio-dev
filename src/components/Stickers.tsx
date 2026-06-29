@@ -1,7 +1,56 @@
+import { motion } from 'framer-motion';
+
 interface StickerProps {
   className?: string;
   style?: React.CSSProperties;
 }
+
+const drawTransition = { duration: 1, ease: 'easeInOut' as const };
+
+/** Squiggle that "draws" its stroke when scrolled into view. */
+export const AnimatedSquiggle = ({ className = '', style }: StickerProps) => (
+  <svg viewBox="0 0 200 30" className={className} style={style} aria-hidden="true">
+    <motion.path
+      d="M2 15 Q 20 0 38 15 T 74 15 T 110 15 T 146 15 T 182 15 T 218 15"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="5"
+      strokeLinecap="round"
+      initial={{ pathLength: 0 }}
+      whileInView={{ pathLength: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={drawTransition}
+    />
+  </svg>
+);
+
+/** Hand-drawn arrow that draws itself on scroll. */
+export const AnimatedArrow = ({ className = '', style }: StickerProps) => (
+  <svg viewBox="0 0 120 80" className={className} style={style} aria-hidden="true">
+    <motion.path
+      d="M6 60 C 40 10 80 8 108 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="5"
+      strokeLinecap="round"
+      initial={{ pathLength: 0 }}
+      whileInView={{ pathLength: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={drawTransition}
+    />
+    <motion.path
+      d="M108 24 L 92 18 M108 24 L 100 40"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="5"
+      strokeLinecap="round"
+      initial={{ pathLength: 0 }}
+      whileInView={{ pathLength: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ ...drawTransition, delay: 0.6 }}
+    />
+  </svg>
+);
 
 export const Star = ({ className = '', style }: StickerProps) => (
   <svg viewBox="0 0 100 100" className={className} style={style} aria-hidden="true">
@@ -41,37 +90,6 @@ export const Heart = ({ className = '', style }: StickerProps) => (
       stroke="#3a3d7a"
       strokeWidth="4"
       strokeLinejoin="round"
-    />
-  </svg>
-);
-
-export const Squiggle = ({ className = '', style }: StickerProps) => (
-  <svg viewBox="0 0 200 30" className={className} style={style} aria-hidden="true">
-    <path
-      d="M2 15 Q 20 0 38 15 T 74 15 T 110 15 T 146 15 T 182 15 T 218 15"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
-export const Arrow = ({ className = '', style }: StickerProps) => (
-  <svg viewBox="0 0 120 80" className={className} style={style} aria-hidden="true">
-    <path
-      d="M6 60 C 40 10 80 8 108 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-    />
-    <path
-      d="M108 24 L 92 18 M108 24 L 100 40"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
     />
   </svg>
 );
