@@ -8,15 +8,30 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.npm-cache
+.npm-cache/
 dist
 dist-ssr
 *.local
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Caches & build info
+.cache
+.eslintcache
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
