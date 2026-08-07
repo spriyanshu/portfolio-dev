@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
 import { BlogPost } from '@/types';
 
+interface RssItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  description?: string;
+  thumbnail?: string;
+  enclosure?: { link?: string };
+}
+
 export const useBlogPosts = (rssUrl: string) => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,7 +62,7 @@ export const useBlogPosts = (rssUrl: string) => {
             const data = await response.json();
 
             if (data.status === 'ok' && data.items && data.items.length > 0) {
-              const formattedPosts: BlogPost[] = data.items.slice(0, 6).map((item: any) => ({
+              const formattedPosts: BlogPost[] = data.items.slice(0, 6).map((item: RssItem) => ({
                 title: item.title,
                 link: item.link,
                 pubDate: item.pubDate,

@@ -1,100 +1,90 @@
+import { NAV_ITEMS, scrollToSection } from '@/lib/nav';
+import { Github, LinkedIn, Mail, XLogo } from '@/components/Icons';
+import { useLocalTime } from '@/hooks/useLocalTime';
 import { PersonalInfo } from '@/types';
-import { FivePointStar, AnimatedSquiggle } from './Stickers';
 
 interface FooterProps {
   personalInfo: PersonalInfo;
 }
 
 export const Footer = ({ personalInfo }: FooterProps) => {
-  const currentYear = new Date().getFullYear();
+  const time = useLocalTime(personalInfo.timezone);
+  const year = new Date().getFullYear();
 
-  const browse = [
-    { label: 'about', href: '#about' },
-    { label: 'work', href: '#projects' },
-    { label: 'gigs', href: '#experience' },
-    { label: 'features', href: '#featured' },
+  const socials = [
+    { label: 'GitHub', href: personalInfo.social.github, icon: <Github className="h-4 w-4" /> },
+    { label: 'LinkedIn', href: personalInfo.social.linkedin, icon: <LinkedIn className="h-4 w-4" /> },
+    { label: 'X', href: personalInfo.social.twitter, icon: <XLogo className="h-4 w-4" /> },
+    { label: 'Email', href: personalInfo.social.email, icon: <Mail className="h-4 w-4" /> },
   ];
 
   return (
-    <footer className="relative mt-10">
-      <div
-        className="relative"
-        style={{
-          background: 'var(--cream)',
-          borderTop: '3px dashed var(--cream-edge)',
-          borderTopLeftRadius: 28,
-          borderTopRightRadius: 28,
-        }}
-      >
-        <div className="container-custom py-12 md:py-16">
-          <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-            {/* Brand */}
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="sticker w-10 h-10">
-                  <FivePointStar className="w-5 h-5" style={{ color: 'var(--yellow)' }} />
-                </span>
-                <span className="font-script text-3xl font-bold text-ink">{personalInfo.name}</span>
-              </div>
-              <p className="font-hand text-2xl text-ink-soft mt-3 max-w-xs leading-snug">
-                backend engineer · cloud tinkerer · coffee-powered ☕
-              </p>
-              <AnimatedSquiggle className="w-40 h-4 mt-2" style={{ color: 'var(--pink-deep)' }} />
-            </div>
-
-            {/* Browse */}
-            <div>
-              <p className="font-marker text-xl text-ink mb-3">wander around</p>
-              <ul className="space-y-2">
-                {browse.map((b) => (
-                  <li key={b.label}>
-                    <a href={b.href} className="font-sans font-semibold text-ink-soft hover:text-ink transition-colors">
-                      {b.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Say hi */}
-            <div>
-              <p className="font-marker text-xl text-ink mb-3">say hi</p>
-              <ul className="space-y-2 font-sans font-semibold text-ink-soft">
-                <li>
-                  <a href={`mailto:${personalInfo.email}`} className="hover:text-ink transition-colors">
-                    {personalInfo.email}
-                  </a>
-                </li>
-                <li>{personalInfo.phone}</li>
-                <li>{personalInfo.location}</li>
-              </ul>
-              <div className="flex gap-2 mt-4">
-                {[
-                  { href: personalInfo.social.github, label: 'gh' },
-                  { href: personalInfo.social.linkedin, label: 'in' },
-                  { href: personalInfo.social.twitter, label: 'x' },
-                ].map((s, i) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`chip ${['chip-mint', 'chip-sky', 'chip-pink'][i]} !w-9 !h-9 !p-0 justify-center !text-sm`}
-                    aria-label={s.label}
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 pt-6" style={{ borderTop: '2px dashed var(--cream-edge)' }}>
-            <p className="font-hand text-xl text-ink-soft text-center">
-              © {currentYear} {personalInfo.name} — made with ♡, paper & lots of glue
+    <footer className="relative overflow-hidden border-t border-line">
+      <div className="shell py-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <p className="mono-label">Currently</p>
+            <p className="mt-3 flex items-center gap-2 text-sm text-ink">
+              <span className="status-dot" />
+              {personalInfo.availability.label}
+            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-faint">
+              {personalInfo.location} · {time} {personalInfo.timezoneLabel}
             </p>
           </div>
+
+          <nav className="md:col-span-4" aria-label="Footer">
+            <p className="mono-label">Index</p>
+            <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-sm text-ink-muted transition-colors duration-300 hover:text-ink"
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="md:col-span-3">
+            <p className="mono-label">Elsewhere</p>
+            <ul className="mt-3 flex gap-2">
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="grid h-9 w-9 place-items-center rounded-lg border border-line text-ink-faint transition-all duration-300 hover:-translate-y-0.5 hover:border-line-strong hover:text-ink"
+                  >
+                    {social.icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <div className="mt-16 flex flex-col gap-2 border-t border-line pt-6 font-mono text-2xs text-ink-ghost sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {personalInfo.name}
+          </p>
+          <p>Built with React, TypeScript, Tailwind and Framer Motion.</p>
+        </div>
+      </div>
+
+      {/* Oversized wordmark, bled off the bottom edge */}
+      <div
+        aria-hidden
+        className="mask-fade-b pointer-events-none select-none px-6 pb-0"
+      >
+        <p className="display translate-y-[22%] text-center text-[19vw] leading-none text-white/[0.035]">
+          {personalInfo.name.toUpperCase()}
+        </p>
       </div>
     </footer>
   );

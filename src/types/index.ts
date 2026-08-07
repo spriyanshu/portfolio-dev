@@ -1,12 +1,21 @@
+export interface Availability {
+  status: string;
+  label: string;
+}
+
 export interface PersonalInfo {
   name: string;
+  firstName: string;
   title: string;
+  roleLine: string;
   tagline: string;
+  intro: string;
   email: string;
   phone: string;
   location: string;
-  avatar: string;
-  favicon: string;
+  timezone: string;
+  timezoneLabel: string;
+  availability: Availability;
   social: {
     github: string;
     linkedin: string;
@@ -32,31 +41,58 @@ export interface Sections {
   contact: SectionConfig;
 }
 
-export interface About {
+export interface Metric {
+  value: string;
+  unit: string;
+  label: string;
+  detail: string;
+}
+
+export interface FocusArea {
+  id: string;
   title: string;
   description: string;
+}
+
+export interface About {
+  title: string;
+  kicker: string;
+  description: string;
   paragraphs: string[];
+  focus: FocusArea[];
+  principles: string[];
 }
 
 export interface Experience {
-  tags: string[];
   id: string;
   company: string;
   companyLogo: string;
   position: string;
+  type: string;
   location: string;
   startDate: string;
   endDate: string;
+  current: boolean;
   description: string;
   achievements: string[];
+  tags: string[];
+}
+
+export interface ProjectMetric {
+  value: string;
+  label: string;
 }
 
 export interface Project {
   id: string;
   name: string;
+  year: string;
+  role: string;
+  status: string;
   shortDescription: string;
   longDescription: string;
   tags: string[];
+  metrics: ProjectMetric[];
   image: string;
   links: {
     demo?: string;
@@ -77,6 +113,7 @@ export interface Building {
 
 export interface SkillCategory {
   name: string;
+  note: string;
   items: string[];
 }
 
@@ -119,11 +156,14 @@ export interface Contact {
   title: string;
   description: string;
   email: string;
+  ctaLabel: string;
 }
 
 export interface ContentData {
   personal: PersonalInfo;
   sections: Sections;
+  metrics: Metric[];
+  marquee: string[];
   about: About;
   experience: Experience[];
   projects: Project[];
@@ -133,4 +173,10 @@ export interface ContentData {
   featured: Featured[];
   blog: BlogConfig;
   contact: Contact;
+}
+
+export interface NavItem {
+  id: string;
+  label: string;
+  index: string;
 }

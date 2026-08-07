@@ -1,59 +1,88 @@
+import { useCallback, useEffect, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Loader } from '@/components/Loader';
+import { CommandPalette } from '@/components/CommandPalette';
+import { Marquee } from '@/components/Marquee';
 import { Hero } from '@/sections/Hero';
 import { About } from '@/sections/About';
-import { Currently } from '@/sections/Currently';
 import { Experience } from '@/sections/Experience';
-import { Projects } from '@/sections/Projects';
-import { Workshop } from '@/sections/Workshop';
-import { Life } from '@/sections/Life';
-import { Skills } from '@/sections/Skills';
-import { Blog } from '@/sections/Blog';
-import { Featured } from '@/sections/Featured';
+import { Work } from '@/sections/Work';
+import { Lab } from '@/sections/Lab';
+import { Stack } from '@/sections/Stack';
+import { Writing } from '@/sections/Writing';
 import { Contact } from '@/sections/Contact';
 import contentData from '@/data/content.json';
 import { ContentData } from '@/types';
 
+const content = contentData as ContentData;
+
 function App() {
-  const content = contentData as ContentData;
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
+  const closePalette = useCallback(() => setPaletteOpen(false), []);
+  const openPalette = useCallback(() => setPaletteOpen(true), []);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() === 'k' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        setPaletteOpen((open) => !open);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  const { sections } = content;
 
   return (
-    <div className="min-h-screen">
-      <Loader />
-      <Header personalInfo={content.personal} />
+    <div className="grain relative min-h-screen">
+      <a
+        href="#about"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-base"
+      >
+        Skip to content
+      </a>
 
-      <main>
-        {content.sections.hero.enabled && <Hero personalInfo={content.personal} />}
+      <Header personalInfo={content.personal} onOpenPalette={openPalette} />
 
-        {content.sections.about.enabled && <About about={content.about} />}
+      <main className="relative">
+        {sections.hero.enabled && (
+          <Hero personalInfo={content.personal} metrics={content.metrics} />
+        )}
 
-        <Currently />
+        <div className="mt-24 md:mt-32">
+          <Marquee items={content.marquee} />
+        </div>
 
-        {content.sections.experience.enabled && <Experience experiences={content.experience} />}
+        {sections.about.enabled && (
+          <About about={content.about} education={content.education} />
+        )}
 
-        {content.sections.projects.enabled && <Projects projects={content.projects} />}
+        {sections.experience.enabled && <Experience experiences={content.experience} />}
 
-        {content.sections.building.enabled && <Workshop building={content.building} />}
+        {sections.projects.enabled && <Work projects={content.projects} />}
 
-        <div className="torn-divider" aria-hidden="true" />
+        {sections.building.enabled && <Lab building={content.building} />}
 
-        <Life />
+        {sections.skills.enabled && <Stack skills={content.skills} />}
 
-        <div className="torn-divider flip" aria-hidden="true" />
+        {(sections.blog.enabled || sections.featured.enabled) && (
+          <Writing blogConfig={content.blog} featured={content.featured} />
+        )}
 
-        {content.sections.skills.enabled && <Skills skills={content.skills} />}
-
-        {content.sections.blog.enabled && <Blog blogConfig={content.blog} />}
-
-        {content.sections.featured.enabled && <Featured featured={content.featured} />}
-
-        {content.sections.contact.enabled && (
+        {sections.contact.enabled && (
           <Contact contact={content.contact} personalInfo={content.personal} />
         )}
       </main>
 
       <Footer personalInfo={content.personal} />
+
+      <CommandPalette
+        open={paletteOpen}
+        onClose={closePalette}
+        personalInfo={content.personal}
+      />
     </div>
   );
 }

@@ -1,89 +1,101 @@
-import { motion } from 'framer-motion';
-import { About as AboutType } from '@/types';
-import { Heart, Sparkle, FivePointStar } from '@/components/Stickers';
+import { Reveal } from '@/components/Reveal';
+import { SectionHeading } from '@/components/SectionHeading';
+import { About as AboutType, Education } from '@/types';
 
 interface AboutProps {
   about: AboutType;
+  education: Education[];
 }
 
-const facts = [
-  { value: '4.5+', label: 'years building', cls: 'chip-pink' },
-  { value: '15+', label: 'projects shipped', cls: 'chip-mint' },
-  { value: '$2M+', label: 'monthly payments', cls: 'chip-yellow' },
-  { value: '99.99%', label: 'uptime', cls: 'chip-sky' },
-];
+export const About = ({ about, education }: AboutProps) => (
+  <section id="about" className="section">
+    <div className="shell">
+      <SectionHeading
+        index="01"
+        label="About"
+        title={
+          <>
+            I work on the parts nobody sees{' '}
+            <span className="serif-accent text-ink-muted">until they break.</span>
+          </>
+        }
+        description={about.description}
+        aside="~/about"
+      />
 
-export const About = ({ about }: AboutProps) => {
-  return (
-    <section id="about" className="section-spacing relative overflow-hidden">
-      <Sparkle className="absolute top-10 right-[8%] w-9 h-9 text-candy-yellow animate-bob hidden md:block" />
+      <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-7">
+          <div className="space-y-6">
+            {about.paragraphs.map((paragraph, index) => (
+              <Reveal key={index} delay={index * 0.08}>
+                <p
+                  className={
+                    index === 0
+                      ? 'text-lg leading-relaxed text-ink md:text-xl'
+                      : 'leading-relaxed text-ink-muted'
+                  }
+                >
+                  {paragraph}
+                </p>
+              </Reveal>
+            ))}
+          </div>
 
-      <div className="container-custom grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-10 items-center">
-        {/* ---- Photo column ---- */}
-        <div className="relative flex justify-center lg:justify-start">
-          <motion.div
-            initial={{ opacity: 0, y: 30, rotate: 0 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -4 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-            className="polaroid tilt relative w-60 sm:w-72"
-            style={{ '--rot': '-4deg' } as React.CSSProperties}
-          >
-            <span className="tape tape-pink" style={{ top: -12, left: '50%', marginLeft: -46, transform: 'rotate(-6deg)' }} />
-            <div className="photo aspect-[4/5] overflow-hidden">
-              <img
-                src="/6060144979042485202.jpg"
-                alt="Priyanshu at the beach"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <p className="caption">sunset state of mind 🌅</p>
-          </motion.div>
-          <FivePointStar className="absolute -top-3 -left-2 w-10 h-10 text-candy-yellow animate-wiggle" />
+          <Reveal delay={0.2} className="mt-12">
+            <p className="mono-label">Operating principles</p>
+            <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
+              {about.principles.map((principle) => (
+                <li
+                  key={principle}
+                  className="bg-base p-4 text-sm leading-snug text-ink-muted transition-colors duration-500 hover:bg-base-elev hover:text-ink"
+                >
+                  <span className="mr-2 text-signal">—</span>
+                  {principle}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
 
-        {/* ---- Diary card column ---- */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, rotate: -1 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -0.6 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="paper paper-note relative p-7 md:p-10"
-        >
-          <span className="tape" style={{ top: -14, left: '12%', transform: 'rotate(-6deg)' }} />
-          <span className="tape tape-pink" style={{ top: -14, right: '14%', transform: 'rotate(7deg)' }} />
-          <Heart className="absolute -right-4 -bottom-4 w-12 h-12 text-candy-pink" />
+        <div className="lg:col-span-5">
+          <Reveal delay={0.1}>
+            <p className="mono-label">Focus areas</p>
+            <ul className="mt-4">
+              {about.focus.map((area, index) => (
+                <li
+                  key={area.id}
+                  className="group border-b border-line py-4 transition-colors duration-300 first:border-t hover:border-line-strong"
+                >
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-mono text-2xs text-ink-ghost transition-colors duration-300 group-hover:text-signal">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3 className="text-base font-medium text-ink">{area.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-faint transition-colors duration-300 group-hover:text-ink-muted">
+                        {area.description}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
-          <p className="kicker">my little story</p>
-          <h2 className="signature text-5xl md:text-6xl mt-1 mb-5">{about.title}</h2>
-
-          <div className="space-y-4">
-            {about.paragraphs.map((p, i) => (
-              <p key={i} className="font-sans text-base md:text-lg text-ink-soft font-semibold leading-relaxed">
-                {p}
-              </p>
+          <Reveal delay={0.2} className="mt-10">
+            <p className="mono-label">Education</p>
+            {education.map((entry) => (
+              <div key={entry.id} className="mt-4 border-t border-line pt-4">
+                <p className="text-sm font-medium text-ink">{entry.degree}</p>
+                <p className="mt-1 text-sm text-ink-muted">{entry.institution}</p>
+                <p className="mt-1 font-mono text-2xs text-ink-ghost">
+                  {entry.startDate} — {entry.endDate} · {entry.location}
+                </p>
+              </div>
             ))}
-          </div>
-
-          <div className="flex flex-wrap gap-3 mt-7">
-            {facts.map((f, i) => (
-              <motion.div
-                key={f.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 + i * 0.08, ease: [0.34, 1.56, 0.64, 1] }}
-                className={`chip ${f.cls} !text-base !px-4 !py-2`}
-                style={{ transform: `rotate(${i % 2 ? 2.5 : -2.5}deg)` }}
-              >
-                <span className="font-script text-xl mr-1.5 font-bold">{f.value}</span>
-                {f.label}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          </Reveal>
+        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

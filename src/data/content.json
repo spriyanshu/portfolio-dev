@@ -1,13 +1,20 @@
 {
   "personal": {
     "name": "Priyanshu Singh",
+    "firstName": "Priyanshu",
     "title": "Backend Engineer",
-    "tagline": "backend engineer who makes servers behave & payments flow — without the drama.",
+    "roleLine": "Backend & Distributed Systems Engineer",
+    "tagline": "I build payment and platform infrastructure that stays up when it matters.",
+    "intro": "Backend engineer with 4.5+ years designing distributed services, payment rails and the observability that keeps them honest.",
     "email": "spriyanshu751@gmail.com",
     "phone": "+91 6392724010",
     "location": "Bangalore, India",
-    "avatar": "",
-    "favicon": "/favicon.ico",
+    "timezone": "Asia/Kolkata",
+    "timezoneLabel": "IST",
+    "availability": {
+      "status": "open",
+      "label": "Open to senior backend roles"
+    },
     "social": {
       "github": "https://github.com/spriyanshu",
       "linkedin": "https://linkedin.com/in/priyanshusingh07",
@@ -17,40 +24,96 @@
     "resumeUrl": "/resume.pdf"
   },
   "sections": {
-    "hero": {
-      "enabled": true
-    },
-    "about": {
-      "enabled": true
-    },
-    "experience": {
-      "enabled": true
-    },
-    "projects": {
-      "enabled": true
-    },
-    "building": {
-      "enabled": true
-    },
-    "skills": {
-      "enabled": false
-    },
-    "blog": {
-      "enabled": true
-    },
-    "featured": {
-      "enabled": true
-    },
-    "contact": {
-      "enabled": true
-    }
+    "hero": { "enabled": true },
+    "about": { "enabled": true },
+    "experience": { "enabled": true },
+    "projects": { "enabled": true },
+    "building": { "enabled": true },
+    "skills": { "enabled": true },
+    "blog": { "enabled": true },
+    "featured": { "enabled": true },
+    "contact": { "enabled": true }
   },
+  "metrics": [
+    {
+      "value": "$2M+",
+      "unit": "/mo",
+      "label": "Payment volume processed",
+      "detail": "Multi-provider payment service across 4 gateways"
+    },
+    {
+      "value": "99.99",
+      "unit": "%",
+      "label": "Service uptime sustained",
+      "detail": "Production payment and onboarding systems"
+    },
+    {
+      "value": "10K",
+      "unit": "+",
+      "label": "Concurrent live listeners",
+      "detail": "Real-time WebRTC audio streaming platform"
+    },
+    {
+      "value": "4.5",
+      "unit": "yrs",
+      "label": "Shipping production backends",
+      "detail": "Fintech, media and enterprise systems"
+    }
+  ],
+  "marquee": [
+    "TypeScript",
+    "Node.js",
+    "NestJS",
+    "GraphQL",
+    "PostgreSQL",
+    "Redis",
+    "Kafka",
+    "RabbitMQ",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "Datadog",
+    "OpenTelemetry",
+    "Go",
+    "Python"
+  ],
   "about": {
-    "title": "hi, i'm Priyanshu",
-    "description": "backend engineer with 4.5+ years spent designing scalable microservices, wrangling payment systems, and shipping cloud-native services.",
+    "title": "About",
+    "kicker": "The short version",
+    "description": "I work on the parts of the product nobody sees until they break.",
     "paragraphs": [
-      "I’m a backend nerd who loves building systems that don’t fall over at 2am. Node.js, NestJS, PostgreSQL, Redis & AWS are my everyday toolkit for keeping things fast and reliable.",
-      "At GeekyAnts I helped build systems that move millions in payments and power smooth digital experiences. I’m happiest untangling messy systems, simplifying the complicated, and shaving milliseconds off slow queries."
+      "Most of my career has been spent close to money and close to scale — KYC onboarding for US banks, a multi-provider payment service moving millions a month, and now high-traffic content APIs at Warner Bros. Discovery.",
+      "I care about the unglamorous things: clean service boundaries, idempotent writes, queries that stay fast at the 99th percentile, and dashboards that tell you what broke before a customer does.",
+      "My default toolkit is TypeScript, NestJS, PostgreSQL, Redis and AWS, with Kafka or RabbitMQ when services need to stop talking synchronously. I reach for the boring, provable option first."
+    ],
+    "focus": [
+      {
+        "id": "f1",
+        "title": "Payments & fintech infrastructure",
+        "description": "Provider-agnostic gateways, reconciliation, idempotency and PCI-DSS compliant flows."
+      },
+      {
+        "id": "f2",
+        "title": "Distributed & event-driven systems",
+        "description": "Service decomposition, message queues, backpressure and graceful degradation."
+      },
+      {
+        "id": "f3",
+        "title": "Observability & reliability",
+        "description": "OpenTelemetry tracing, Datadog SLOs and alerts that page on symptoms, not noise."
+      },
+      {
+        "id": "f4",
+        "title": "API design & performance",
+        "description": "REST and GraphQL contracts, query optimisation, caching strategy and load shedding."
+      }
+    ],
+    "principles": [
+      "Design for the failure case first.",
+      "Boring technology, applied carefully, wins.",
+      "If it isn't measured, it isn't running.",
+      "Readable code outlives clever code."
     ]
   },
   "experience": [
@@ -59,67 +122,90 @@
       "company": "Warner Bros. Discovery",
       "companyLogo": "/warner-bros-logo.jpg",
       "position": "Software Engineer",
+      "type": "Full-time",
       "location": "Bangalore, India",
       "startDate": "Dec 2025",
       "endDate": "Present",
-      "description": "Building scalable backend systems and microservices for enterprise clients",
+      "current": true,
+      "description": "Backend and GraphQL services for Bleacher Report, serving high-traffic sports content to millions of fans.",
       "achievements": [
-        "Contributed to the backend development of Bleacher Report, working on Node.js services and GraphQL APIs to support high-traffic sports content delivery, optimizing data fetching and improving API performance and scalability.",
-        "Implemented comprehensive monitoring and observability using Datadog metrics, dashboards, and alerts to track system health, performance bottlenecks, and error rates, improving production visibility and reducing downtime."
+        "Build and maintain Node.js and GraphQL services powering Bleacher Report's content delivery, tuning resolver-level data fetching and caching to cut redundant upstream calls.",
+        "Own observability for owned services with Datadog metrics, dashboards and SLO-backed alerts, improving production visibility and shortening time-to-detection on incidents.",
+        "Partner with platform and frontend teams on schema design so client teams can ship without breaking API contracts."
       ],
-      "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices"]
+      "tags": ["Node.js", "GraphQL", "TypeScript", "Datadog", "AWS"]
     },
     {
       "id": "2",
       "company": "GeekyAnts",
       "companyLogo": "https://avatars.githubusercontent.com/u/18482943?s=200&v=4",
       "position": "Software Engineer",
+      "type": "Full-time",
       "location": "Bangalore, India",
       "startDate": "Aug 2022",
       "endDate": "Dec 2025",
-      "description": "Building scalable backend systems and microservices for enterprise clients",
+      "current": false,
+      "description": "Payment infrastructure and compliance-heavy onboarding platforms for US fintech clients.",
       "achievements": [
-        "Architected a KYC onboarding platform adopted by 3 US banks, reducing onboarding time by 40% and ensuring PCI-DSS compliance.",
-        "Designed and implemented a multi-provider payment service processing $2M+ in monthly volume with 99.99% uptime and modular API integration."
+        "Architected a KYC onboarding platform adopted by 3 US banks, cutting onboarding time by 40% while meeting PCI-DSS requirements.",
+        "Designed a multi-provider payment service processing $2M+ in monthly volume at 99.99% uptime, using Strategy and Factory patterns so a new provider takes 3 days to integrate instead of 2 weeks.",
+        "Introduced OpenTelemetry tracing across services, turning opaque cross-service latency into traceable spans and measurably faster incident triage.",
+        "Mentored engineers through design reviews and set the team's conventions for service structure, error handling and API versioning."
       ],
-      "tags": ["NestJS", "PostgreSQL", "AWS", "Microservices", "Payment Processing"]
+      "tags": ["NestJS", "PostgreSQL", "Redis", "RabbitMQ", "AWS", "PCI-DSS"]
     },
     {
       "id": "3",
-      "company": "Infinisea Software Private Limited",
+      "company": "Infinisea Software",
       "companyLogo": "https://media.licdn.com/dms/image/v2/D560BAQF0q4htwjdpyg/company-logo_200_200/company-logo_200_200/0/1719256013295/pcsmcpl_logo?e=1784160000&v=beta&t=6DvXrGHCEs4at3ovEy5yrDGhREtM-RQrOJ8XEKaoQT8",
       "position": "Software Engineer Intern",
+      "type": "Internship",
       "location": "Lucknow, India",
       "startDate": "Feb 2022",
       "endDate": "Aug 2022",
-      "description": "Developed ERP modules for government authorities",
+      "current": false,
+      "description": "ERP modules digitising workflows for state government authorities.",
       "achievements": [
-        "Delivered ERP solutions for 13+ government authorities, digitizing workflows and improving operational transparency.",
-        "Optimized SQL queries, reducing report time from 5 minutes to 45 seconds."
+        "Delivered ERP modules used by 13+ government authorities, replacing paper workflows with auditable digital ones.",
+        "Rewrote reporting queries and indexes, taking a core report from 5 minutes to 45 seconds."
       ],
-      "tags": ["MySQL", "Spring Boot", "ERP", "Government Authorities"]
+      "tags": ["Java", "Spring Boot", "MySQL", "ERP"]
     }
   ],
   "projects": [
     {
       "id": "1",
-      "name": "AI-Powered HR Assistant",
-      "shortDescription": "AI chatbot handling 1,000+ daily HR queries with 92% accuracy using GPT-4 and vector search.",
-      "longDescription": "Built intelligent AI chatbot handling 1,000+ daily HR queries (policies, leaves, notices) using LangChain and OpenAI GPT-4, achieving 92% query resolution accuracy and reducing HR workload by 45%. Integrated PostgreSQL with SQL Agents for DML operations, processing 500+ database transactions daily with 99.9% data integrity and <50ms query response time. Implemented FAISS vector embeddings for semantic search across 10,000+ documents, improving search accuracy by 25% and reducing search latency from 2 seconds to 300ms.",
-      "tags": ["AI", "LangChain", "OpenAI", "PostgreSQL", "FAISS"],
-      "image": "/hr-bot.png",
+      "name": "Multi-Provider Payment Service",
+      "year": "2024",
+      "role": "Backend architecture & delivery",
+      "status": "Production",
+      "shortDescription": "One API over four payment gateways, with provider selection resolved at runtime instead of at deploy time.",
+      "longDescription": "A modular payment service that normalises four providers behind a single contract. Strategy and Factory patterns handle provider selection and instantiation, so routing rules change without touching call sites. Handles 5,000+ daily transactions with idempotent writes, queued retries via RabbitMQ and Redis-backed rate limiting.",
+      "tags": ["NestJS", "TypeScript", "RabbitMQ", "Redis", "Docker"],
+      "metrics": [
+        { "value": "5K+", "label": "daily transactions" },
+        { "value": "65%", "label": "less duplicate code" },
+        { "value": "3 days", "label": "to add a provider" }
+      ],
+      "image": "/pay.png",
       "links": {
-        "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
-        "github": "https://github.com/spriyanshu/portfolio-devs",
+        "github": "https://github.com/spriyanshu/practice-lld",
         "viewAll": "https://github.com/spriyanshu"
       }
     },
     {
       "id": "2",
       "name": "Real-time Podcast Platform",
-      "shortDescription": "Real-time podcast platform with WebRTC and Socket.io serving 10,000+ concurrent listeners.",
-      "longDescription": "Built a high-scale podcast application using WebRTC, Icecast, Socket.io, Ably, RabbitMQ, handling 10,000+ concurrent listeners with real-time audio streaming, chat features, and live analytics dashboard.",
-      "tags": ["WebRTC", "Socket.io", "RabbitMQ", "Icecast", "Real-time"],
+      "year": "2023",
+      "role": "Real-time backend & streaming",
+      "status": "Shipped",
+      "shortDescription": "Live audio for 10,000+ concurrent listeners over WebRTC, with chat and analytics that keep up.",
+      "longDescription": "A live audio platform combining WebRTC for low-latency broadcast, Icecast for scale-out listening, and Socket.io with Ably for chat and presence. RabbitMQ absorbs analytics events so the streaming path never waits on the reporting path.",
+      "tags": ["WebRTC", "Socket.io", "RabbitMQ", "Icecast", "Node.js"],
+      "metrics": [
+        { "value": "10K+", "label": "concurrent listeners" },
+        { "value": "<200ms", "label": "broadcast latency" }
+      ],
       "image": "/mic.png",
       "links": {
         "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
@@ -127,17 +213,24 @@
         "viewAll": "https://github.com/spriyanshu"
       }
     },
-
     {
       "id": "3",
-      "name": "Payment Service",
-      "shortDescription": "Microservices payment gateway processing 5,000+ daily transactions with unified API and design patterns.",
-      "longDescription": "Developed modular microservices-based payment service processing 5,000+ daily transactions across 4 payment providers using unified API, reducing integration time for new providers from 2 weeks to 3 days. Applied Strategy and Factory design patterns for provider selection and instantiation, improving code maintainability by 40% and reducing duplicate code by 65%.",
-      "tags": ["NestJS", "Payments", "RabbitMQ", "Redis", "Docker"],
-      "image": "/pay.png",
+      "name": "AI-Powered HR Assistant",
+      "year": "2023",
+      "role": "Backend & retrieval pipeline",
+      "status": "Shipped",
+      "shortDescription": "Retrieval-augmented assistant answering 1,000+ HR queries a day against real company data.",
+      "longDescription": "An internal assistant built on LangChain and GPT-4 that answers policy, leave and notice queries with 92% resolution accuracy. FAISS embeddings cover 10,000+ documents and dropped semantic search latency from 2s to 300ms; SQL agents handle safe DML against PostgreSQL for the write paths.",
+      "tags": ["LangChain", "OpenAI", "PostgreSQL", "FAISS", "Python"],
+      "metrics": [
+        { "value": "92%", "label": "resolution accuracy" },
+        { "value": "300ms", "label": "search latency, from 2s" },
+        { "value": "45%", "label": "less HR workload" }
+      ],
+      "image": "/hr-bot.png",
       "links": {
         "demo": "https://youtu.be/B9mmtTFCHxw?si=MWWLLWxU_hk5U5W4",
-        "github": "https://github.com/spriyanshu/practice-lld",
+        "github": "https://github.com/spriyanshu/portfolio-devs",
         "viewAll": "https://github.com/spriyanshu"
       }
     }
@@ -146,28 +239,28 @@
     {
       "id": "1",
       "name": "PayKit",
-      "blurb": "an open-source, multi-provider payments SDK so you never write another Stripe/Razorpay adapter by hand.",
+      "blurb": "An open-source, multi-provider payments SDK so nobody has to hand-write another Stripe or Razorpay adapter.",
       "progress": 45,
-      "status": "wip",
+      "status": "In progress",
       "tags": ["TypeScript", "NestJS", "Stripe", "Razorpay"],
       "link": "https://github.com/spriyanshu"
     },
     {
-      "id": "2",
-      "name": "ObservaBot",
-      "blurb": "a tiny Slack bot that turns noisy OpenTelemetry traces into human-friendly 'here's what broke' alerts.",
-      "progress": 25,
-      "status": "just an idea",
-      "tags": ["Go", "OpenTelemetry", "Slack API"],
+      "id": "3",
+      "name": "DevJournal",
+      "blurb": "Self-hosted dev blog and analytics — markdown in, fast pages and honest read-stats out.",
+      "progress": 70,
+      "status": "Shipping soon",
+      "tags": ["Next.js", "PostgreSQL", "Prisma"],
       "link": ""
     },
     {
-      "id": "3",
-      "name": "DevJournal",
-      "blurb": "self-hosted dev blog + analytics — markdown in, pretty pages and read-stats out.",
-      "progress": 70,
-      "status": "shipping soon",
-      "tags": ["Next.js", "PostgreSQL", "Prisma"],
+      "id": "2",
+      "name": "ObservaBot",
+      "blurb": "A small Slack bot that turns noisy OpenTelemetry traces into a plain-English summary of what actually broke.",
+      "progress": 25,
+      "status": "Exploring",
+      "tags": ["Go", "OpenTelemetry", "Slack API"],
       "link": ""
     }
   ],
@@ -175,31 +268,38 @@
     "categories": [
       {
         "name": "Languages",
-        "items": ["TypeScript", "JavaScript (ES6+)", "Java", "Python", "SQL"]
+        "note": "Daily drivers first",
+        "items": ["TypeScript", "JavaScript", "SQL", "Java", "Python", "Go"]
       },
       {
-        "name": "Frameworks & Libraries",
-        "items": ["NestJS", "Express", "Spring Boot", "GraphQL"]
+        "name": "Runtime & Frameworks",
+        "note": "Service layer",
+        "items": ["Node.js", "NestJS", "Express", "GraphQL", "Spring Boot"]
       },
       {
-        "name": "Databases",
-        "items": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+        "name": "Data",
+        "note": "Storage & caching",
+        "items": ["PostgreSQL", "MySQL", "Redis", "MongoDB", "Prisma", "TypeORM"]
       },
       {
-        "name": "Cloud & DevOps",
-        "items": ["AWS (EC2, S3, Lambda, RDS)", "Docker", "Kubernetes", "Terraform", "CI/CD"]
+        "name": "Messaging & Streaming",
+        "note": "Async backbone",
+        "items": ["Kafka", "RabbitMQ", "Socket.io", "WebRTC"]
       },
       {
-        "name": "Architecture",
-        "items": ["Microservices", "Event-Driven Systems", "API Gateway", "Serverless"]
+        "name": "Cloud & Infrastructure",
+        "note": "Where it runs",
+        "items": ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD", "Serverless"]
       },
       {
-        "name": "Tools & Messaging",
-        "items": ["Git", "Kafka", "RabbitMQ", "Prometheus", "Grafana"]
+        "name": "Observability",
+        "note": "Knowing it works",
+        "items": ["OpenTelemetry", "Datadog", "Prometheus", "Grafana"]
       },
       {
-        "name": "Security & Compliance",
-        "items": ["OAuth2", "JWT", "PCI DSS", "API Security"]
+        "name": "Architecture & Security",
+        "note": "How it's shaped",
+        "items": ["Microservices", "Event-Driven", "OAuth2", "JWT", "PCI-DSS", "API Design"]
       }
     ]
   },
@@ -208,26 +308,26 @@
       "id": "1",
       "institution": "University of Lucknow",
       "degree": "Master of Computer Applications",
-      "location": "Lucknow, UP",
-      "startDate": "Aug 2020",
-      "endDate": "May 2022"
+      "location": "Lucknow, India",
+      "startDate": "2020",
+      "endDate": "2022"
     }
   ],
   "featured": [
     {
       "id": "1",
       "title": "Unveiling OpenTelemetry: Your Key to Streamlined Observability",
-      "platform": "Tech Blog",
+      "platform": "Article",
       "url": "https://geekyants.com/blog/unveiling-opentelemetry-your-key-to-streamlined-observability",
-      "description": "my take on OpenTelemetry & keeping modern systems observable.",
+      "description": "Why distributed tracing changes how you debug systems you can't step through.",
       "date": "2024"
     },
     {
       "id": "2",
-      "title": "ChatGPT Powered HR-Bot | GeekSpeak | GeekyAnts",
-      "platform": "Tech Video",
+      "title": "ChatGPT Powered HR-Bot — GeekSpeak",
+      "platform": "Talk",
       "url": "https://youtu.be/itDCzbvJH3s?si=uBu7snT4Z7jkI8eV",
-      "description": "me on stage at GeekSpeak, demoing a ChatGPT-powered HR-Bot.",
+      "description": "A live walkthrough of the retrieval pipeline behind our internal HR assistant.",
       "date": "2023"
     }
   ],
@@ -236,8 +336,9 @@
     "rssUrl": "https://blog.spriyanshu.in/rss.xml"
   },
   "contact": {
-    "title": "let's build something",
-    "description": "got a project, a role, or just want to nerd out about backend stuff? my inbox is always open.",
-    "email": "spriyanshu751@gmail.com"
+    "title": "Let's build something durable",
+    "description": "I'm open to senior backend roles and interesting infrastructure problems. If you're hiring, collaborating, or just want to argue about queue semantics, my inbox is open.",
+    "email": "spriyanshu751@gmail.com",
+    "ctaLabel": "Start a conversation"
   }
 }

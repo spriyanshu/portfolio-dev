@@ -1,84 +1,110 @@
-import { motion } from 'framer-motion';
+import { Reveal } from '@/components/Reveal';
+import { SectionHeading } from '@/components/SectionHeading';
 import { Experience as ExperienceType } from '@/types';
-import { Star } from '@/components/Stickers';
 
 interface ExperienceProps {
   experiences: ExperienceType[];
 }
 
-export const Experience = ({ experiences }: ExperienceProps) => {
-  return (
-    <section id="experience" className="section-spacing relative overflow-hidden">
-      <div className="container-custom">
-        <div className="text-center mb-12">
-          <p className="kicker">where i've been</p>
-          <h2 className="signature text-6xl md:text-7xl mt-1">boarding passes</h2>
-          <p className="font-hand text-2xl text-ink-soft mt-1">every gig, a place i flew to ✈</p>
-        </div>
+export const Experience = ({ experiences }: ExperienceProps) => (
+  <section id="experience" className="section">
+    <div className="shell">
+      <SectionHeading
+        index="02"
+        label="Experience"
+        title={
+          <>
+            Four and a half years,{' '}
+            <span className="serif-accent text-ink-muted">three problem spaces.</span>
+          </>
+        }
+        description="Fintech compliance, payment rails, and high-traffic media APIs — each one taught me something different about failure."
+        aside="git log --author=priyanshu"
+      />
 
-        <div className="space-y-10 max-w-4xl mx-auto">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, y: 36, rotate: index % 2 ? 1.5 : -1.5 }}
-              whileInView={{ opacity: 1, y: 0, rotate: index % 2 ? 1 : -1 }}
-              viewport={{ once: true, margin: '-70px' }}
-              transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-              whileHover={{ rotate: 0, y: -6 }}
-              className="ticket flex flex-col sm:flex-row"
-            >
-              {/* ---- Stub ---- */}
-              <div className="sm:w-52 flex-shrink-0 p-5 flex flex-col items-center text-center gap-2 sm:border-r-2 border-dashed border-cream-edge">
-                <span className="font-marker text-xs text-ink-soft uppercase tracking-[0.2em]">
-                  boarding pass
-                </span>
-                <div className="sticker w-14 h-14 overflow-hidden p-0">
-                  <img src={exp.companyLogo} alt={exp.company} className="w-full h-full object-cover" />
-                </div>
-                <p className="font-script text-2xl font-bold text-ink leading-none">{exp.company}</p>
-                <span className="chip chip-yellow !text-xs mt-1">
-                  {exp.startDate} → {exp.endDate}
-                </span>
-                <p className="font-marker text-sm text-ink-soft">{exp.location}</p>
-                <div className="barcode mt-2" />
+      <ol className="relative">
+        {/* Continuous rail the entries hang off */}
+        <div
+          className="absolute left-0 top-2 hidden h-full w-px bg-gradient-to-b from-line-strong via-line to-transparent md:block md:left-[19%]"
+          aria-hidden
+        />
+
+        {experiences.map((job, index) => (
+          <Reveal as="li" key={job.id} delay={index * 0.06} className="relative">
+            <div className="group grid gap-6 py-10 md:grid-cols-12 md:gap-8">
+              <div className="md:col-span-2">
+                <p className="font-mono text-2xs leading-relaxed text-ink-muted">
+                  {job.startDate}
+                  <br />
+                  <span className={job.current ? 'text-signal' : 'text-ink-ghost'}>
+                    {job.endDate}
+                  </span>
+                </p>
+                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-ghost">
+                  {job.type}
+                </p>
               </div>
 
-              {/* ---- Main ---- */}
-              <div className="flex-1 p-6">
-                <div className="flex items-center justify-between gap-2 mb-2">
-                  <h3 className="font-script text-3xl font-bold text-ink leading-none">{exp.position}</h3>
-                  <span className="font-marker text-ink-soft text-sm hidden sm:block">
-                    seat {String.fromCharCode(65 + index)}
-                    {index + 1}
-                  </span>
-                </div>
-                <p className="font-sans font-semibold text-ink-soft">{exp.description}</p>
+              <div className="relative md:col-span-10 md:pl-10">
+                <span
+                  className={`absolute -left-[5px] top-1.5 hidden h-2.5 w-2.5 rounded-full border-2 border-base md:block ${
+                    job.current ? 'bg-signal' : 'bg-ink-ghost'
+                  } transition-colors duration-500 group-hover:bg-signal`}
+                  aria-hidden
+                />
 
-                <ul className="space-y-2 mt-4">
-                  {exp.achievements.map((a, i) => (
-                    <li key={i} className="flex gap-2 font-sans text-ink-soft font-semibold">
-                      <Star className="w-4 h-4 mt-1.5 flex-shrink-0 text-candy-pink" />
-                      <span>{a}</span>
+                <div className="flex flex-wrap items-center gap-3">
+                  <img
+                    src={job.companyLogo}
+                    alt=""
+                    loading="lazy"
+                    className="h-7 w-7 rounded-md border border-line object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                  />
+                  <h3 className="text-xl font-medium tracking-tight text-ink md:text-2xl">
+                    {job.company}
+                  </h3>
+                  {job.current && (
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-signal/25 bg-signal/[0.07] px-2 py-0.5 font-mono text-[10px] text-signal">
+                      <span className="status-dot" />
+                      now
+                    </span>
+                  )}
+                </div>
+
+                <p className="mt-2 text-sm text-ink-muted">
+                  {job.position} · {job.location}
+                </p>
+
+                <p className="mt-4 max-w-2xl leading-relaxed text-ink-muted">{job.description}</p>
+
+                <ul className="mt-5 max-w-3xl space-y-2.5">
+                  {job.achievements.map((achievement) => (
+                    <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-ink-faint">
+                      <span
+                        className="mt-[9px] h-px w-3 shrink-0 bg-ink-ghost transition-colors duration-300 group-hover:bg-signal"
+                        aria-hidden
+                      />
+                      <span className="transition-colors duration-300 group-hover:text-ink-muted">
+                        {achievement}
+                      </span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {exp.tags.slice(0, 5).map((t, i) => (
-                    <span
-                      key={t}
-                      className={`chip ${['chip-mint', 'chip-sky', 'chip-pink', 'chip-coral', ''][i % 5]}`}
-                      style={{ transform: `rotate(${i % 2 ? 1.5 : -1.5}deg)` }}
-                    >
-                      {t}
-                    </span>
+                <ul className="mt-5 flex flex-wrap gap-1.5">
+                  {job.tags.map((tag) => (
+                    <li key={tag} className="chip">
+                      {tag}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+            </div>
+
+            {index < experiences.length - 1 && <hr className="border-line" />}
+          </Reveal>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
