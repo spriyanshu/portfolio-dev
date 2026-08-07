@@ -11,6 +11,7 @@ interface HeaderProps {
 const navItems = [
   { name: 'about', href: '#about' },
   { name: 'work', href: '#projects' },
+  { name: 'lab', href: '#building' },
   { name: 'gigs', href: '#experience' },
   { name: 'life', href: '#life' },
 ];

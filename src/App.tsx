@@ -6,6 +6,7 @@ import { About } from '@/sections/About';
 import { Currently } from '@/sections/Currently';
 import { Experience } from '@/sections/Experience';
 import { Projects } from '@/sections/Projects';
+import { Workshop } from '@/sections/Workshop';
 import { Life } from '@/sections/Life';
 import { Skills } from '@/sections/Skills';
 import { Blog } from '@/sections/Blog';
@@ -32,6 +33,8 @@ function App() {
         {content.sections.experience.enabled && <Experience experiences={content.experience} />}
 
         {content.sections.projects.enabled && <Projects projects={content.projects} />}
+
+        {content.sections.building.enabled && <Workshop building={content.building} />}
 
         <div className="torn-divider" aria-hidden="true" />
 

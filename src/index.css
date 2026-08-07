@@ -423,6 +423,38 @@
     transform: translateY(-4px) rotate(-6deg) scale(1.06);
   }
 
+  /* ---------- Progress bar (workbench) ---------- */
+  .progress {
+    height: 14px;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.28) 0 6px,
+      transparent 6px 12px
+    );
+    background-color: var(--mint);
+  }
+
+  /* ---------- WIP rubber stamp ---------- */
+  .wip-stamp {
+    @apply inline-flex items-center font-marker uppercase leading-none;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border: 2.5px solid currentColor;
+    border-radius: 6px;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
   /* ---------- Scrapbook loader ---------- */
   .loader-screen {
     position: fixed;

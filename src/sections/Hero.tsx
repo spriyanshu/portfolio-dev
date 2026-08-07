@@ -143,7 +143,7 @@ export const Hero = ({ personalInfo }: HeroProps) => {
             >
               <span className="tape tape-mint" style={{ top: -12, right: 12, transform: 'rotate(10deg)' }} />
               <div className="flex items-end justify-center gap-1">
-                <span className="signature text-5xl text-candy-pink-deep">3+</span>
+                <span className="signature text-5xl text-candy-pink-deep">4.5+</span>
                 <span className="font-marker text-lg text-ink mb-1">yrs</span>
               </div>
               <p className="font-marker text-base text-ink-soft">shipping backend magic</p>

@@ -29,6 +29,9 @@
     "projects": {
       "enabled": true
     },
+    "building": {
+      "enabled": true
+    },
     "skills": {
       "enabled": false
     },
@@ -44,7 +47,7 @@
   },
   "about": {
     "title": "hi, i'm Priyanshu",
-    "description": "backend engineer with 4+ years spent designing scalable microservices, wrangling payment systems, and shipping cloud-native services.",
+    "description": "backend engineer with 4.5+ years spent designing scalable microservices, wrangling payment systems, and shipping cloud-native services.",
     "paragraphs": [
       "I’m a backend nerd who loves building systems that don’t fall over at 2am. Node.js, NestJS, PostgreSQL, Redis & AWS are my everyday toolkit for keeping things fast and reliable.",
       "At GeekyAnts I helped build systems that move millions in payments and power smooth digital experiences. I’m happiest untangling messy systems, simplifying the complicated, and shaving milliseconds off slow queries."
@@ -137,6 +140,35 @@
         "github": "https://github.com/spriyanshu/practice-lld",
         "viewAll": "https://github.com/spriyanshu"
       }
+    }
+  ],
+  "building": [
+    {
+      "id": "1",
+      "name": "PayKit",
+      "blurb": "an open-source, multi-provider payments SDK so you never write another Stripe/Razorpay adapter by hand.",
+      "progress": 45,
+      "status": "wip",
+      "tags": ["TypeScript", "NestJS", "Stripe", "Razorpay"],
+      "link": "https://github.com/spriyanshu"
+    },
+    {
+      "id": "2",
+      "name": "ObservaBot",
+      "blurb": "a tiny Slack bot that turns noisy OpenTelemetry traces into human-friendly 'here's what broke' alerts.",
+      "progress": 25,
+      "status": "just an idea",
+      "tags": ["Go", "OpenTelemetry", "Slack API"],
+      "link": ""
+    },
+    {
+      "id": "3",
+      "name": "DevJournal",
+      "blurb": "self-hosted dev blog + analytics — markdown in, pretty pages and read-stats out.",
+      "progress": 70,
+      "status": "shipping soon",
+      "tags": ["Next.js", "PostgreSQL", "Prisma"],
+      "link": ""
     }
   ],
   "skills": {

@@ -7,7 +7,7 @@ interface AboutProps {
 }
 
 const facts = [
-  { value: '3+', label: 'years building', cls: 'chip-pink' },
+  { value: '4.5+', label: 'years building', cls: 'chip-pink' },
   { value: '15+', label: 'projects shipped', cls: 'chip-mint' },
   { value: '$2M+', label: 'monthly payments', cls: 'chip-yellow' },
   { value: '99.99%', label: 'uptime', cls: 'chip-sky' },

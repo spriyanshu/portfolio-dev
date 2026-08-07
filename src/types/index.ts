@@ -25,6 +25,7 @@ export interface Sections {
   about: SectionConfig;
   experience: SectionConfig;
   projects: SectionConfig;
+  building: SectionConfig;
   skills: SectionConfig;
   blog: SectionConfig;
   featured: SectionConfig;
@@ -62,6 +63,16 @@ export interface Project {
     github?: string;
     viewAll?: string;
   };
+}
+
+export interface Building {
+  id: string;
+  name: string;
+  blurb: string;
+  progress: number;
+  status: string;
+  tags: string[];
+  link?: string;
 }
 
 export interface SkillCategory {
@@ -116,6 +127,7 @@ export interface ContentData {
   about: About;
   experience: Experience[];
   projects: Project[];
+  building: Building[];
   skills: Skills;
   education: Education[];
   featured: Featured[];
